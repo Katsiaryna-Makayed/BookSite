@@ -4,12 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
-use App\Http\Requests;
-//use App\Book;
-
-
-class BasketController extends Controller
+class BaseController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -18,7 +13,7 @@ class BasketController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        
     }
 
     /**
@@ -26,12 +21,14 @@ class BasketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex(){
+    public function index()
+    {
+        return view('index');
+    }
+	
+	public function getIndex(){
 		//$text = Goods:: where('url', 'index')->first();
-		//$all=Books::where('showhide','show')->paginate(10);		
-		
-		return view('basket');
-		
-		//->with('all', $all);		
+		$all=Books::where('showhide','show')->paginate(10);		
+		return view('try')->with('all', $all);		
 	}
 }

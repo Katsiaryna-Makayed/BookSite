@@ -36,25 +36,22 @@
      
 <nav class="navbar navbar-default navbar-static-top">		
 	    <ul class="nav navbar-nav">
-		<li class="active"><a href="{{ url('/') }}">На главную</a></li>
-		<li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Категории
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="{{ url('/') }}">Детективы</a></li>
-          <li><a href="{{ url('/') }}">Фантастика</a></li>
-          <li><a href="{{ url('/') }}">Справочники</a></li>
-		  <li><a href="{{ url('/') }}">Религия. Мистика. Эзотерика</a></li>		  
-		  <li><a href="{{ url('/') }}">Бизнес-литература</a></li>
-		  <li><a href="{{ url('/') }}">Детская литература</a></li>
-		  <li><a href="{{ url('/') }}">Ужасы</a></li>
-        </ul>
-      </li>
-      
-	  <li><a href="{{ url('/') }}">Акции</a></li>
-	  <li><a href="{{ url('/') }}">Новинки</a></li>
-	  <li><a href="{{ url('/') }}">Контакты</a></li>
-      <li><a href="{{ url('/') }}">Корзина</a></li>
+			<li><a href="{{ url('/') }}">На главную</a></li>
+			<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Категории
+			<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				@foreach($catalogs as $one)
+				<li><a href="{{url('genre/'.$one->id)}}">{{$one->name}}</a></li>
+				@endforeach
+			   
+			</ul>
+		  </li>
+		  
+		  <li><a href="{{ url('/sales') }}">Акции</a></li>
+		  <li><a href="{{ url('/new') }}">Новинки</a></li>
+		  <li><a href="{{ url('/ourcontacts') }}">Контакты</a></li>
+		  <li><a href="{{ url('/basket') }}">Корзина</a></li>
 		</ul>              
         </div>
     </nav>

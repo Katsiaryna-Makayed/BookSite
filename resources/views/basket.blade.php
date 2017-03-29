@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('basket')
+@section('content')
 
 <div class="container">
   <div class="row">
