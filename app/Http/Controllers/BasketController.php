@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 
 use App\Http\Requests;
-use App\Books;
+use App\Book;
 
 
 class BasketController extends Controller

@@ -16,9 +16,10 @@
 Route::get('/', 'BaseController@index');
 Route::get('/about', 'BaseController@index');
 Auth::routes();
-Route::get('/logout', 'Auth.AuthController@getLogout');
+Route::get('/logout', 'HomeController@getLogout');
 Route::get('/basket', 'BasketController@getindex');
 Route::get('/home', 'HomeController@index');
+Route::get('/genre/{id}', 'GenreController@getIndex');
 
 Route::get('{id}', 'StaticController@getindex');
  

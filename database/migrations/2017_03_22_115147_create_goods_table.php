@@ -13,22 +13,19 @@ class CreateGoodsTable extends Migration {
      */
     public function up()
     {
-        Model::unguard();
-        Schema::create('goods',function(Blueprint $table){
-            $table->increments("id");
-            $table->string("name");
-            $table->integer("authors_id")->references("id")->on("authors")->nullable();
-            $table->text("description")->nullable();
-            $table->string("url")->nullable();
-            $table->string("picture")->nullable();
-            $table->string("price")->nullable();
-            $table->string("year")->nullable();
-            $table->enum("vip", ["0", "1"])->nullable();
-            $table->enum("showhide", ["show", "hide", ])->nullable();
-            $table->integer("categories_id")->references("id")->on("categories")->nullable();
-            $table->integer("user_id")->references("id")->on("user")->nullable();
-            $table->timestamps();
-            $table->softDeletes();
+         Schema::create('goods', function (Blueprint $table) {
+			$table->string('name');
+			$table->string('author');
+			$table->text('description');
+			$table->string('url');
+			$table->string('picture');
+			$table->string('price');
+			$table->integer('year');
+			$table->enum('vip', array('0','1'))->default('0');
+			$table->enum('showhide', array('show','hide'))->default('show');
+			$table->integer('cat_id');
+			$table->integer('user_id');
+			$table->timestamps();
         });
     }
 
