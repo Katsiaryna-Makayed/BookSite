@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="{{asset('public/css/carousel.css')}}" type="text/css" rel="stylesheet">
 <div class="container">
       
 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
