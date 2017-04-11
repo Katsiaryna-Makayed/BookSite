@@ -11,6 +11,6 @@ class GenreController extends Controller
 {
     public function getIndex($id){
 		$cat_number=Categories::find($id);		
-		return view('good')->with('cat_number', $cat_number);	
+		return view('category')->with('cat_number', $cat_number);	
 	}
 }
