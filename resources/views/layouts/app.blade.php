@@ -13,12 +13,14 @@
 	</head>
 
 <body >
-	<div class="container" id ="wrap">   
+	<div class="container" id ="wrap" >   
 				 <div class="row">
-					<div class="col-md-4 ">
-						<img src = "public/img/maple.jpg"  width = "200" height = "80">            
+					<div class="col-md-1 ">
+						<img src = "{{asset('public/img/maple.jpg')}}"  width = "200" height = "80">            
 					</div>					
-					<div class= "col-md-3 col-md-offset-5 ">
+					<div class= "col-md-11 ">
+						
+						<div class="block">
 						@if (Auth::guest())
 							<i class="fa fa-sign-in"> <a  href="{{ url('/login') }}">Вход</a></i>
 							<i class="fa fa-pencil"><a  href="{{ url('/register') }}">Регистрация</a></i>
@@ -26,35 +28,56 @@
 							<i class="fa fa-book"><a href="#" >{{ Auth::user()->name }}</a></i>
                             <i class="fa fa-sign-out"><a href="{{ url('/logout') }}">Logout</a></i>                                                 
 						@endif										
-					</div>		
+						</div>
+						
+					<div class="navig-bar">
+						<a class = "ref" href="{{ url('/') }}">На главную</a>
 				
+						<span class="dropdown">
+						<a class = "ref" href="{{ url('/#') }}" data-toggle="dropdown" class="dropdown-toggle">Категории
+						<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							@foreach($catalogs as $one)
+								<li><a href="{{url('genre/'.$one->id)}}">{{$one->name}}</a></li>
+							@endforeach
+						</ul>
+						</span>	
 				
-			
-			<div class="block">
-				<a class = "ref" href="{{ url('/') }}">На главную</a>
-				<span class="dropdown">
-				<a class = "ref" href="{{ url('/#') }}" data-toggle="dropdown" class="dropdown-toggle">Категории
-					<b class="caret"></b></a>
-					<ul class="dropdown-menu">
-					@foreach($catalogs as $one)
-					<li><a href="{{url('genre/'.$one->id)}}">{{$one->name}}</a></li>
-					@endforeach
-					</ul>
-				</span>	
-				
-				<a class = "ref" href="{{ url('/sales') }}">Акции</a>
-				<a class = "ref" href="{{ url('/new') }}">Новинки</a>
-				<a class = "ref" href="{{ url('/ourcontacts') }}">Контакты</a>
-				<a class = "ref" href="{{ url('/basket') }}">Корзина</a>
-			</div >
+						<a class = "ref" href="{{ url('/sales') }}">Акции</a>
+						<a class = "ref" href="{{ url('/new') }}">Новинки</a>
+						<a class = "ref" href="{{ url('/ourcontacts') }}">Контакты</a>
+						<a class = "ref" href="{{ url('/cart') }}">Корзина</a>
+						
+						<span class="d5" method="post" >
+							<input type="text" placeholder="Поиск...">
+							<button type="submit"></button>
+						</span>
+						
+					</div >
+					</div>	
 			</div> 
+			<div class="breadcrumbs">
+            	<ol class="breadcrumb">
+                	@if(isset($book))
+                	<li><a href="{{ url('/') }}">{{$book->id}}</a></li>
+
+                	@endif
+                	<li><a href="{{ url('/') }}">Home</a></li>
+                	<li class="active">
+                		<a href={{url('genre/'.$category->id)}}>{{$category->name}}</a>
+                	</li>
+                	@if(isset($category2))
+                	<li class="active">
+                		<a href={{url('genre/'.$category->id.'/'.$category2->id)}}>
+                		{{$category2->name}}</a>
+                	</li>
+                	@endif
+            	</ol>
+        	</div>
 		@yield('content')		
 	</div> 
 	<div class="container">   
 	<footer> 
-		При воспроизведении редакционных материалов сайта обязательна установка активной гиперссылки на источник — страницу 
-		с этой публикацией на maplebookshop.ru.
-		<br>
 		&copy; Maple Bookshop 2017
 	<footer>
 	</div>		

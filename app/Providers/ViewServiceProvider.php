@@ -17,6 +17,8 @@ class ViewServiceProvider extends ServiceProvider
     {
         //
 		View::composer('layouts.app', 'App\Providers\ViewComposers\TopmenuComposer');
+        View::composer('layouts.app', 'App\Providers\ViewComposers\BreadComposer');
+           
     }
 
     /**
