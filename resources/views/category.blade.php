@@ -8,16 +8,19 @@
 	
 	
 	
-	<div class="row" id = "row0">
+	<div class="row">	
 	@foreach($category as $one)
-		<a href="{{url('genre/'.$one->parent_id.'/'.$one->id)}}" class="good-ref"> 
-		<div  id = "row1" >
+	<div class="col-sm-2 col-xs-3">
+		<a class = "border" href="{{url('genre/'.$one->parent_id.'/'.$one->id)}}">
+		<div class="good-ref">							
 		<img src = "{{asset('public/img/category/novel.jpg')}}"   width="150"  height="150">
 		<p>{{$one->name}}</p>
 		</div>
 		</a>
+	</div>
     @endforeach
 	</div>
+	
 	
 	
 

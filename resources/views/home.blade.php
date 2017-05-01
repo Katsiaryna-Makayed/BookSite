@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<link href="{{asset('public/css/carousel.css')}}" type="text/css" rel="stylesheet"
+<link href="{{asset('public/css/carousel.css')}}" type="text/css" rel="stylesheet">
 @section('content')
 
 <div id="testCarousel" class="carousel slide" data-ride="carousel">
@@ -50,18 +50,21 @@
 				</div>
 				
 				<div class="panel-body">
-					<div class="row" id = "row0">
-						@foreach($sale_books as $one)
-							<a class="good-ref">
-							<div  id = "row1" >
-							<div><img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="150"  height="150"></div>
-							<div id="row2">{{$one->name}}</div>
-							<div id="row2">{{$one->authors->fio}}</div>
-							<div id="row2">{{$one->price}}</div>
-							</div></a>
-						@endforeach
+					<div class="row">				
+					@foreach($sale_books as $one)										
+						<div class="col-sm-3 col-xs-3">				
+						<a class = "border" href="{{ url('/new') }}">
+						<div class="good-ref">						
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="140"  height="140">
+								<div>{{$one->name}}</div>
+								<div >{{$one->authors->fio}}</div>
+								<div>{{$one->price}}</div>
 						
-					</div>
+						</div>
+						</a>
+						</div>
+	      			@endforeach    			
+			</div>
 				</div>
 			</div>
 		
@@ -70,18 +73,21 @@
 					<h3 class="panel-title">Новые поступления</h3>
 					</div>
 				<div class="panel-body">
-					<div class="row" id = "row0">
-						@foreach($new_books as $one)
-						<a class="good-ref">
-							<div  id = "row1" >
-							<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="150"  height="150">
-							<div id="row2">{{$one->name}}</div>
-							<div id="row2">{{$one->authors->fio}}</div>
-							<div id="row2">{{$one->price}}</div>
-							</div></a>
-						@endforeach
+					<div class="row">				
+					@foreach($new_books as $one)										
+						<div class="col-sm-3 col-xs-3">				
+						<a class = "border" href="{{ url('/new') }}">
+						<div class="good-ref">						
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="140"  height="140">
+								<div>{{$one->name}}</div>
+								<div >{{$one->authors->fio}}</div>
+								<div>{{$one->price}}</div>
 						
-					</div>
+						</div>
+						</a>
+						</div>
+	      			@endforeach    			
+			</div>
 				</div>
 			</div>
 		</div>
@@ -91,22 +97,25 @@
 				<div class="panel-heading">
 					<h5 class="panel-title">Популярные товары</h5>
 				</div>
-			<div class="panel-body ">
-				<div class="row" id = "row0">
-					@foreach($pop_books as $one)
-					
-					<a class="good-ref">
-					<div  id = "row1" >
-						<img src = "{{asset('/public/uploads/thumb'.$one->picture)}}" alt = "{{$one->name}}" width="140"  height="140">
-						<div id="row2">{{$one->name}}</div>
-						<div id="row2">{{$one->authors->fio}}</div>
-					<div id="row2">{{$one->price}}</div></div></a>
-	      			@endforeach
-	      			
+				
+				<div class="panel-body ">
+			<div class="row">				
+					@foreach($pop_books as $one)										
+						<div class="col-sm-6 col-xs-4">				
+						<a class = "border" href="{{ url('/new') }}">
+						<div class="good-ref">						
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="140"  height="140">
+								<div>{{$one->name}}</div>
+								<div >{{$one->authors->fio}}</div>
+								<div>{{$one->price}}</div>
+						
+						</div>
+						</a>
+						</div>
+	      			@endforeach    			
+			</div>
 				</div>
 			</div>
-			</div>
-		</div>
 		</div>  
 	  
 	  

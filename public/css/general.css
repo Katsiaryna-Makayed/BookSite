@@ -6,41 +6,25 @@ body{
 }
 
 
-.smalcart{
-    float:right;    
-    height:55px;
-    padding: 10px;
-    padding-left: 15px;
-    margin: 10px;
-    border: 1px solid gray;
-    border-radius: 10px; 
-    -moz-border-radius: 10px; 
-    -webkit-border-radius: 10px;  
-    background: #E6DEEA;
-}
-
 a {
 	color: #40382D; 
 	margin-right: 20px;	
 	margin-left: 3px;	
 	font-family: arial; 
 }
-
 a:hover {
-	color: #40382D; 
-	
+	color: #40382D;	
 }
 a:active {
-	color: red; 
-	
+	color: #40382D; 	
 }
 a:visited {
 color: #40382D;  
 }
+
 html{
 	padding-top:20px;
-	padding-bottom:20px;
-	
+	padding-bottom:20px;	
 }
 
 .btn  {
@@ -65,6 +49,19 @@ html{
 	border:2px solid #40382D; 
 	text-decoration: none;
 } /* при нажатии */
+
+#small{
+	font-size: 12px;
+	margin-left:10px;
+	text-align:center;
+	}
+	
+#com-btn{
+	float:right;
+	font-size: 12px;
+	margin-top:5px;
+	
+}
 
 .ref  { 
 display: inline-block;
@@ -154,60 +151,50 @@ text-align: center;  }
 	border: 2px solid #281F1F;
 }
 
-p{
-	
-text-align: center;	
-}
 
-.d5 input, .d5 button {
+.search{
+	
+        float: right;
+		margin-top:20px;
+}
+.search input, .search button {
   outline: none;
   background: transparent;
 }
-.d5 input {
+.search input {
  
   padding-left: 15px;
   border: 2px solid #58554B;
   border-radius: 12px;
 }
-.d5 button {
+.search button {
   border:none;
-  border-color: red;
- 
- 
+  border-color: red; 
   cursor: pointer;
 }
-.d5 button:before {
+.search button:before {
   content: "\f002";
   font-family: FontAwesome;
   font-size: 16px;
   color: #58554B;
 }
-.d5 input:focus {
+.search input:focus {
   border-color: #311c24
 }
-#row0{
-	display: flex;
-	flex-direction: row;
-	margin: 2px;
-}
+
 .good-ref{
-  border: 2px solid white;
- background-size: 120%
+ border: 2px solid white;
+padding: 3px;
+margin-top:-20px;
+margin-bottom:-20px;
+text-align:center;
 }
 
 .good-ref:hover{
-  border: 2px solid #F9EA94;
-  border-radius:5px;
- 
-}
-#row1{
-	display: flex;
-	flex-direction: column;
-	margin: 2px;
-}
-#row2{
-	
-	text-align:center;
+border: 2px solid #FCF2BB;
+padding: 3px;
+border-radius:3px;
+
 }
 
 .breadcrumb{
@@ -225,8 +212,40 @@ h2{
 	border: 1px solid #281F1F;
 	
 }
-
-.form-horizontal{
-	
+.form-horizontal{	
 	margin-top:20px;
+}
+#filter{
+	font-size:20px;
+}
+
+p{
+	text-align:center;
+	font-weight:bold;
+	font-size:14px;	
+}
+.border{
+	margin-top:-5px;
+}
+
+.btn-group{
+	display: flex;
+	flex-direction: row;
+	padding: 5px;	
+}
+textarea {
+	resize: none;
+	width:100%;
+	border:1px solid #58554B;
+	border-radius:2px;
+}
+.comments{
+	margin-top:35px;	
+}
+.author{
+	font-size:18px;	
+	font-weight:bold;
+}
+.comment{
+	margin-left:25px;	
 }

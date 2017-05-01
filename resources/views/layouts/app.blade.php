@@ -48,10 +48,11 @@
 						<a class = "ref" href="{{ url('/ourcontacts') }}">Контакты</a>
 						<a class = "ref" href="{{ url('/cart') }}">Корзина</a>
 						
-						<span class="d5" method="post" >
-							<input type="text" placeholder="Поиск...">
-							<button type="submit"></button>
-						</span>
+						<form class="search" name="search" action="{{url('/search')}}" method="post">
+					{{ csrf_field() }} 
+					<input type="text" name="search" placeholder="Поиск...">
+					<button type="submit"></button>
+				</form>
 						
 					</div >
 					</div>	
