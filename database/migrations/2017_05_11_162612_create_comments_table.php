@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Eloquent\Model;
 
-class CreateCategoriesTable extends Migration {
+class CreateCommentsTable extends Migration {
 
     /**
      * Run the migrations.
@@ -14,12 +14,12 @@ class CreateCategoriesTable extends Migration {
     public function up()
     {
         Model::unguard();
-        Schema::create('categories',function(Blueprint $table){
+        Schema::create('comments',function(Blueprint $table){
             $table->increments("id");
-            $table->string("name");
-            $table->string("photo")->nullable();
+            $table->integer("products_id")->references("id")->on("products");
+            $table->integer("user_id")->references("id")->on("user")->nullable();
             $table->enum("showhide", ["show", "hide", ])->nullable();
-            $table->string("parent_id")->nullable();
+            $table->text("content")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,7 +32,7 @@ class CreateCategoriesTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('categories');
+        Schema::drop('comments');
     }
 
 }

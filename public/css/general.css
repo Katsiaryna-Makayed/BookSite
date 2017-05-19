@@ -8,8 +8,6 @@ body{
 
 a {
 	color: #40382D; 
-	margin-right: 20px;	
-	margin-left: 3px;	
 	font-family: arial; 
 }
 a:hover {
@@ -67,9 +65,8 @@ html{
 display: inline-block;
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-left: 5px ;
-  margin-right: 5px ;
+  letter-spacing: 1px; 
+  margin-right: 10px ;
   margin-top: 15px ;
   padding: 10px;
   font-size: 12px;
@@ -77,42 +74,46 @@ display: inline-block;
   font-family: arial;
   transition: 0.4s ease-in-out;
   color: #45A0A4;
-  background: -webkit-linear-gradient(right, #E3612C 0, #E3612C 33.3%, #FCCE30 33.3%, #FCCE30 66.6%, #58554B 66.6%, #58554B) bottom no-repeat;
   background: -o-linear-gradient(right, #E3612C 0, #E3612C 33.3%, #FCCE30 33.3%, #FCCE30 66.6%, #58554B 66.6%, #58554B) bottom no-repeat;
   background: linear-gradient(to right, #E3612C 0, #E3612C 33.3%, #FCCE30 33.3%, #FCCE30 66.6%, #58554B 66.6%, #58554B) bottom no-repeat;
   background-size: 70% 2px;
 }
 .ref:hover {
-	background-size: 100% 7px;
+	background-size: 100% 5px;
 	text-decoration: none;
 }
 .ref:active {
-	background-size: 100% 7px;
+	background-size: 100% 5px;
 	text-decoration: none;
 }
 
 a {
 	color: #40382D; 
-	margin-right: 20px;	
-	margin-left: 3px;	
 	font-family: arial; 
 }
 
 a:hover {
 	color: #40382D; 
-	
+	text-decoration: none;
 }
 a:active {
-	color: red; 
-	
+	color: #40382D; 
+text-decoration: none;	
 }
 a:visited {
 color: #40382D;  
+text-decoration: none;
+}
+
+.logging-in{
+	margin-right:20px;
+	margin-left:5px;
+	
 }
 
 .navig-bar{
 height:60px;
-
+margin-left:70px;
 text-align: center;
 float: right;
 }
@@ -143,17 +144,15 @@ text-align: center;  }
 }
 .panel-title{
 	
-	font-size: 18pt;
+	font-size: 15pt;
 	text-align: center;	
 	Color:#281F1F;
 }
 .panel{
-	border: 2px solid #281F1F;
+	border: 1px solid #281F1F;
 }
 
-
 .search{
-	
         float: right;
 		margin-top:20px;
 }
@@ -183,18 +182,34 @@ text-align: center;  }
 }
 
 .good-ref{
- border: 2px solid white;
+border: 2px solid white;
 padding: 3px;
-margin-top:-20px;
-margin-bottom:-20px;
+margin-bottom:10px;
 text-align:center;
+font-size: 14px;
+font-family: arial;
+height:240px;
 }
 
 .good-ref:hover{
 border: 2px solid #FCF2BB;
 padding: 3px;
 border-radius:3px;
+}
 
+
+.descr-name{
+
+	font-size: 13pt;
+	color:#281F1F;
+	
+}
+
+.descr-price{
+
+	font-size: 13pt;
+	color:#281F1F;
+	
 }
 
 .breadcrumb{
@@ -203,9 +218,10 @@ border-radius:3px;
 	background-color:#FCF2BB ;
 	font-family:arial
 }
-h2{
+.headline{
 	text-align:center;
-	margin-bottom:20px;
+	font-size:24px;
+	
 }
 
 #email, #password, #name, #password-confirm{
@@ -223,9 +239,6 @@ p{
 	text-align:center;
 	font-weight:bold;
 	font-size:14px;	
-}
-.border{
-	margin-top:-5px;
 }
 
 .btn-group{
@@ -249,3 +262,26 @@ textarea {
 .comment{
 	margin-left:25px;	
 }
+
+
+.sale15 {
+    display:inline-block;   
+    position:relative;
+ 
+}
+.sale15 span {
+    display:inline-block;
+    position:absolute;
+    top:130px;   
+    left:0px;
+     
+    /* Оформление текста */
+    color:#FFF;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:20px; 
+     
+    /* Фон */
+    background-color:rgba(255, 0, 0, 0.4);
+    padding:5px 10px;
+}
+

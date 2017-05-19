@@ -16,20 +16,18 @@
     </div>
 </div>
 
-{!! Form::open(array('files' => true, 'route' => config('quickadmin.route').'.categories.store', 'id' => 'form-with-validation', 'class' => 'form-horizontal')) !!}
+{!! Form::open(array('route' => config('quickadmin.route').'.comments.store', 'id' => 'form-with-validation', 'class' => 'form-horizontal')) !!}
 
 <div class="form-group">
-    {!! Form::label('name', 'name*', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('products_id', 'product_id*', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!! Form::text('name', old('name'), array('class'=>'form-control')) !!}
+        {!! Form::select('products_id', $products, old('products_id'), array('class'=>'form-control')) !!}
         
     </div>
 </div><div class="form-group">
-    {!! Form::label('photo', 'photo', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('user_id', 'user_id', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!! Form::file('photo') !!}
-        {!! Form::hidden('photo_w', 4096) !!}
-        {!! Form::hidden('photo_h', 4096) !!}
+        {!! Form::select('user_id', $user, old('user_id'), array('class'=>'form-control')) !!}
         
     </div>
 </div><div class="form-group">
@@ -39,9 +37,9 @@
         
     </div>
 </div><div class="form-group">
-    {!! Form::label('parent_id', 'parent_id', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('content', 'content', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!! Form::text('parent_id', old('parent_id'), array('class'=>'form-control')) !!}
+        {!! Form::textarea('content', old('content'), array('class'=>'form-control')) !!}
         
     </div>
 </div>

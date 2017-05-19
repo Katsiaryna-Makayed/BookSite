@@ -25,6 +25,12 @@
         
     </div>
 </div><div class="form-group">
+    {!! Form::label('year', 'year', array('class'=>'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!! Form::text('year', old('year'), array('class'=>'form-control')) !!}
+        
+    </div>
+</div><div class="form-group">
     {!! Form::label('authors_id', 'author', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::select('authors_id', $authors, old('authors_id'), array('class'=>'form-control')) !!}
@@ -63,9 +69,21 @@
         
     </div>
 </div><div class="form-group">
-    {!! Form::label('vip', 'vip', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('quantity', 'quantity', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!! Form::select('vip', $vip, old('vip'), array('class'=>'form-control')) !!}
+        {!! Form::text('quantity', old('quantity'), array('class'=>'form-control')) !!}
+        
+    </div>
+</div><div class="form-group">
+    {!! Form::label('sold', 'sold', array('class'=>'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!! Form::text('sold', old('sold'), array('class'=>'form-control')) !!}
+        
+    </div>
+</div><div class="form-group">
+    {!! Form::label('sale', 'sale', array('class'=>'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!! Form::select('sale', $sale, old('sale'), array('class'=>'form-control')) !!}
         
     </div>
 </div>

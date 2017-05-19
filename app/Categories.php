@@ -23,6 +23,7 @@ class Categories extends Model {
     
     protected $fillable = [
           'name',
+          'photo',
           'showhide',
           'parent_id'
     ];

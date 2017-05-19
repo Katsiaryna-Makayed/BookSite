@@ -22,11 +22,11 @@
 						
 						<div class="block">
 						@if (Auth::guest())
-							<i class="fa fa-sign-in"> <a  href="{{ url('/login') }}">Вход</a></i>
-							<i class="fa fa-pencil"><a  href="{{ url('/register') }}">Регистрация</a></i>
+							<i class="fa fa-sign-in"> <a  class = "logging-in" href="{{ url('/login') }}">Вход</a></i>
+							<i class="fa fa-pencil"><a  class = "logging-in" href="{{ url('/register') }}">Регистрация</a></i>
 						@else
-							<i class="fa fa-book"><a href="#" >{{ Auth::user()->name }}</a></i>
-                            <i class="fa fa-sign-out"><a href="{{ url('/logout') }}">Logout</a></i>                                                 
+							<i class="fa fa-book"><a class = "logging-in" href="#" >{{ Auth::user()->name }}</a></i>
+                            <i class="fa fa-sign-out"><a class = "logging-in" href="{{ url('/logout') }}">Logout</a></i>                                                 
 						@endif										
 						</div>
 						
@@ -48,31 +48,53 @@
 						<a class = "ref" href="{{ url('/ourcontacts') }}">Контакты</a>
 						<a class = "ref" href="{{ url('/cart') }}">Корзина</a>
 						
-						<form class="search" name="search" action="{{url('/search')}}" method="post">
+					<form class="search" name="search" action="{{url('/search')}}" method="post">
 					{{ csrf_field() }} 
 					<input type="text" name="search" placeholder="Поиск...">
 					<button type="submit"></button>
-				</form>
+					</form>
 						
 					</div >
 					</div>	
 			</div> 
+			
 			<div class="breadcrumbs">
             	<ol class="breadcrumb">
-                	@if(isset($book))
-                	<li><a href="{{ url('/') }}">{{$book->id}}</a></li>
+            		<li><a href="{{ url('/') }}">Главная</a></li>
+            		
+            		@if(isset($second))
+	            		<li><a href="{{url('#')}}">{{$second}}</a></li>
+	            	@endif
 
-                	@endif
-                	<li><a href="{{ url('/') }}">Home</a></li>
-                	<li class="active">
-                		<a href={{url('genre/'.$category->id)}}>{{$category->name}}</a>
-                	</li>
-                	@if(isset($category2))
-                	<li class="active">
-                		<a href={{url('genre/'.$category->id.'/'.$category2->id)}}>
-                		{{$category2->name}}</a>
-                	</li>
-                	@endif
+
+	                @if(isset($book))
+	                	<li><a href={{url('genre/'.$book->categories->parent_id.'/'.$book->categories->id)}}>{{$book->categories->name}}</a></li>
+	                	<li><a href={{url('author/'.$book->authors->id)}}>{{$book->authors->fio}}</a></li>
+	                	
+	                	<li><a href={{url('book/'.$book->id) }}>{{$book->name}}</a></li>
+	                @endif
+
+
+	                @if(isset($category))
+	                <li class="active">
+	                	<a href={{url('genre/'.$category->id)}}>{{$category->name}}</a>
+	                </li>
+		                @if(isset($category2))
+		                <li class="active">
+		                	<a href={{url('genre/'.$category->id.'/'.$category2->id)}}>
+		                	{{$category2->name}}</a>
+		                </li>
+		                @endif
+	                @endif
+
+	                @if(isset($authorBread))
+	                <li class="active">
+	                	<a href={{url('author/'.$authorBread->id)}}>{{$authorBread->fio}}</a>
+	                </li>
+	                @endif
+	                
+
+
             	</ol>
         	</div>
 		@yield('content')		

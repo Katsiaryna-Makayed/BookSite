@@ -12,8 +12,10 @@
 	@foreach($category as $one)
 	<div class="col-sm-2 col-xs-3">
 		<a class = "border" href="{{url('genre/'.$one->parent_id.'/'.$one->id)}}">
-		<div class="good-ref">							
-		<img src = "{{asset('public/img/category/novel.jpg')}}"   width="150"  height="150">
+		<div class="good-ref">	
+		<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="150"  height="150">
+														
+<!-- 		<img src = "{{asset('public/img/category/novel.jpg')}}"   width="150"  height="150"> -->
 		<p>{{$one->name}}</p>
 		</div>
 		</a>

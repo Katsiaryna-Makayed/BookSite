@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Maintext;
 use App\Products;
-
+use App\Authors;
 class BaseController extends Controller
 {
     /**
@@ -33,8 +33,8 @@ class BaseController extends Controller
     
     public function getIndex(){
         $new_books = Products::where('showhide', 'show')->orderBy('created_at', 'DESC')->limit(4)->get();
-        $sale_books = Products::where('showhide', 'show')->orderBy('vip', 'DESC')->limit(4)->get();
-        $pop_books = Products::where('showhide', 'show')->orderBy('vip', 'DESC')->limit(4)->get();
+        $sale_books = Products::where('showhide', 'show')->orderBy('sale', 'sale_5')->limit(4)->get();
+        $pop_books = Products::where('showhide', 'show')->orderBy('quantity', 'DESC')->limit(4)->get();
         return view('home')->with('new_books', $new_books)->with('sale_books', $sale_books)->with('pop_books', $pop_books);
          
          
@@ -47,6 +47,12 @@ class BaseController extends Controller
     
     public function getSales(){
         return view('sales');
+        
+    } 
+    public function getAuthors($id){
+        $author = Authors::find($id);
+        $author_books = Products::where('showhide', 'show')->where('authors_id', $id)->get();
+        return view('author')->with('author', $author)->with('author_books', $author_books);
         
     } 
     

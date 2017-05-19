@@ -42,9 +42,9 @@ $categories = Categories::pluck("name", "id")->prepend('Please select', null);
 
 	    
         $showhide = Products::$showhide;
-        $vip = Products::$vip;
+        $sale = Products::$sale;
 
-	    return view('admin.products.create', compact("authors", "categories", "showhide", "vip"));
+	    return view('admin.products.create', compact("authors", "categories", "showhide", "sale"));
 	}
 
 	/**
@@ -74,9 +74,9 @@ $categories = Categories::pluck("name", "id")->prepend('Please select', null);
 
 	    
         $showhide = Products::$showhide;
-        $vip = Products::$vip;
+        $sale = Products::$sale;
 
-		return view('admin.products.edit', compact('products', "authors", "categories", "showhide", "vip"));
+		return view('admin.products.edit', compact('products', "authors", "categories", "showhide", "sale"));
 	}
 
 	/**

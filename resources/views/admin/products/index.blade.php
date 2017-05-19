@@ -17,12 +17,15 @@
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
                         <th>name</th>
+                        <th>year</th>
 <th>author</th>
 <th>category</th>
 <th>photo</th>
 <th>showhide</th>
 <th>price</th>
-<th>vip</th>
+<th>quantity</th>
+<th>sold</th>
+<th>sale</th>
 
                         <th>&nbsp;</th>
                     </tr>
@@ -35,12 +38,15 @@
                                 {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
                             </td>
                             <td>{{ $row->name }}</td>
+                            <td>{{ $row->year }}</td>
 <td>{{ isset($row->authors->fio) ? $row->authors->fio : '' }}</td>
 <td>{{ isset($row->categories->name) ? $row->categories->name : '' }}</td>
 <td>@if($row->photo != '')<img src="{{ asset('uploads/thumb') . '/'.  $row->photo }}">@endif</td>
 <td>{{ $row->showhide }}</td>
 <td>{{ $row->price }}</td>
-<td>{{ $row->vip }}</td>
+ <td>{{ $row->quantity }}</td>
+  <td>{{ $row->sold }}</td>
+<td>{{ $row->sale }}</td>
 
                             <td>
                                 {!! link_to_route(config('quickadmin.route').'.products.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}

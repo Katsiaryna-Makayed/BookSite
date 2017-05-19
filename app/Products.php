@@ -23,17 +23,20 @@ class Products extends Model {
     
     protected $fillable = [
           'name',
+          'year',
           'authors_id',
           'categories_id',
           'description',
           'photo',
           'showhide',
           'price',
-          'vip'
+          'quantity',
+          'sold',
+          'sale'
     ];
     
     public static $showhide = ["show" => "show", "hide" => "hide", ];
-    public static $vip = ["0" => "0", "1" => "1"];
+    public static $sale = ["no_sale" => "no_sale", "sale_5" => "sale_5", "sale_10" => "sale_10", "sale_15" => "sale_15", ];
 
 
     public static function boot()

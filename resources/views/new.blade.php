@@ -4,10 +4,8 @@
 <div class="container">
 	
 	
-	<img src = "public/img/book1.png" alt = "Картинка" height="150" width="150">
-	<p>имя</p>	
-	<p>автор, год</p>	
-	<p>цена</p>	
+	<img src = "public/img/book1.png" alt = "Картинка" height="200" width="200">
+	
 	
 	
 </div>

@@ -13,31 +13,34 @@
 	<div class="carousel-inner">
 	
 		<div class="item active">
-			<img src="{{asset('public/img/car1.jpg')}}" alt="...">
+			<img src="{{asset('public/img/car5.jpg')}}" alt="...">
 			<div class="carousel-caption">
-				...
+			«Люди перестают мыслить, когда перестают читать»<br>
+			Дени Дидро
 			</div>
 		</div>
 		
 		<div class="item">
 			<img src="{{asset('public/img/car2.jpg')}}" alt="...">
 			<div class="carousel-caption">
-				...
+			«Книги рождают мечту, вызывают ее к жизни, заставляют размышлять, воспитывают самостоятельность суждений»<br> 
+			С.Г. Струмилин
 			</div>
 		</div>
 		
 		<div class="item">
-			<img src="{{asset('public/img/car3.jpg')}}" alt="...">
+			<img src="{{asset('public/img/car1.jpg')}}" alt="...">
 			<div class="carousel-caption">
-				...
+			«Чтение – это один из истоков мышления и умственного развития»<br>
+			В.А. Сухомлинский
 			</div>
 		</div>
 	</div>
 
-	<a class="left carousel-control" href="#testCarousel" role="button" data-slide="prev">
+	<a class="left carousel-control" href="#testCarousel" role="button" data-slide="prev" id = "arrows">
 		<span class="glyphicon glyphicon-chevron-left"></span>
 	</a>
-	<a class="right carousel-control" href="#testCarousel" role="button" data-slide="next">
+	<a class="right carousel-control" href="#testCarousel" role="button" data-slide="next" id = "arrows">
 		<span class="glyphicon glyphicon-chevron-right"></span>
 	</a>
 </div>
@@ -53,12 +56,12 @@
 					<div class="row">				
 					@foreach($sale_books as $one)										
 						<div class="col-sm-3 col-xs-3">				
-						<a class = "border" href="{{ url('/new') }}">
+						<a  href="{{url('book/'.$one->id)}}">
 						<div class="good-ref">						
 								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="140"  height="140">
-								<div>{{$one->name}}</div>
-								<div >{{$one->authors->fio}}</div>
-								<div>{{$one->price}}</div>
+								<div class = "descr-name">{{$one->name}}</div>
+								<div class = "descr-author">{{$one->authors->fio}}</div>
+								<div class = "descr-price">{{$one->price}}</div>
 						
 						</div>
 						</a>
@@ -76,12 +79,12 @@
 					<div class="row">				
 					@foreach($new_books as $one)										
 						<div class="col-sm-3 col-xs-3">				
-						<a class = "border" href="{{ url('/new') }}">
+						<a  href="{{url('book/'.$one->id)}}">
 						<div class="good-ref">						
 								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="140"  height="140">
-								<div>{{$one->name}}</div>
+								<div class = "descr-name">{{$one->name}}</div>
 								<div >{{$one->authors->fio}}</div>
-								<div>{{$one->price}}</div>
+								<div class = "descr-price">{{$one->price}}</div>
 						
 						</div>
 						</a>
@@ -101,13 +104,13 @@
 				<div class="panel-body ">
 			<div class="row">				
 					@foreach($pop_books as $one)										
-						<div class="col-sm-6 col-xs-4">				
-						<a class = "border" href="{{ url('/new') }}">
+						<div class="col-sm-6 ">				
+						<a  href="{{url('book/'.$one->id)}}">
 						<div class="good-ref">						
 								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="140"  height="140">
-								<div>{{$one->name}}</div>
+								<div class = "descr-name">{{$one->name}}</div>
 								<div >{{$one->authors->fio}}</div>
-								<div>{{$one->price}}</div>
+								<div class = "descr-price">{{$one->price}}</div>
 						
 						</div>
 						</a>

@@ -16,12 +16,20 @@
     </div>
 </div>
 
-{!! Form::model($categories, array('class' => 'form-horizontal', 'id' => 'form-with-validation', 'method' => 'PATCH', 'route' => array(config('quickadmin.route').'.categories.update', $categories->id))) !!}
+{!! Form::model($categories, array('files' => true, 'class' => 'form-horizontal', 'id' => 'form-with-validation', 'method' => 'PATCH', 'route' => array(config('quickadmin.route').'.categories.update', $categories->id))) !!}
 
 <div class="form-group">
     {!! Form::label('name', 'name*', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::text('name', old('name',$categories->name), array('class'=>'form-control')) !!}
+        
+    </div>
+</div><div class="form-group">
+    {!! Form::label('photo', 'photo', array('class'=>'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!! Form::file('photo') !!}
+        {!! Form::hidden('photo_w', 4096) !!}
+        {!! Form::hidden('photo_h', 4096) !!}
         
     </div>
 </div><div class="form-group">

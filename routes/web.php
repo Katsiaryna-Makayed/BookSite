@@ -18,6 +18,7 @@ Route::post('/cart', 'CartController@index');
 Route::get('/cart', 'CartController@index');
 Route::get('/delete-cart-product/{id}', 'CartController@removeItem');
 
+Route::get('/author/{id}', 'BaseController@getAuthors');
 Route::post('/search', 'SearchController@getIndex');
 
 Route::post('/book/{id}', 'CommentsController@save');
@@ -35,6 +36,7 @@ Route::get('/logout', 'HomeController@getLogout');
 //Route::post('/basket', 'BasketController@postBasket');
 Route::get('/home', 'BaseController@getIndex');
 Route::get('/genre/{id1}/{id}', 'GenreController@getGoods');
+Route::get('/filter/{id1}/{id}', 'BookController@getFilter');
 
 Route::get('/genre/{id}', 'GenreController@getCategory');
 

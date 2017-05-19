@@ -9,6 +9,7 @@ use App\Categories;
 use App\Http\Requests\CreateCategoriesRequest;
 use App\Http\Requests\UpdateCategoriesRequest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Traits\FileUploadTrait;
 
 
 
@@ -49,7 +50,7 @@ class CategoriesController extends Controller {
 	 */
 	public function store(CreateCategoriesRequest $request)
 	{
-	    
+	    $request = $this->saveFiles($request);
 		Categories::create($request->all());
 
 		return redirect()->route(config('quickadmin.route').'.categories.index');
@@ -80,7 +81,7 @@ class CategoriesController extends Controller {
 	public function update($id, UpdateCategoriesRequest $request)
 	{
 		$categories = Categories::findOrFail($id);
-
+ 		$request = $this->saveFiles($request);
         
 
 		$categories->update($request->all());

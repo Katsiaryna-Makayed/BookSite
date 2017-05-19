@@ -5,16 +5,17 @@ namespace App\Providers\ViewComposers;
 use Illuminate\Contracts\View\View;
 use App\Categories;
 use App\Products;
-
+use App\Authors;
 
 class BreadComposer{
 	public function compose(View $view)
 	{
-		$url = $_SERVER['REQUEST_URI'];
-			$category2 = new Categories;
-			$book = new Products;
+$url = $_SERVER['REQUEST_URI'];
+		$category2 = null;
+		$book = null;
+		$second = null;
+		$author = null;
 		$arr = explode('/', $url);
-	//	dd ($arr);
 		if($arr[1] == 'genre')
 		{
 			$category = Categories::where('showhide', 'show')->where('id', $arr[2])->first();
@@ -25,23 +26,38 @@ class BreadComposer{
 			{
 				$category2 = Categories::where('showhide', 'show')->where('id', $arr[3])->first();
 			} 
-
 		}
 		else {
 			$category = new Categories;
-
+		}
+		if($arr[1] == 'sales')
+		{
+			$second = 'Акции';
+		}
+		if($arr[1] == 'new')
+		{
+			$second = 'Новинки';
+		}
+		if($arr[1] == 'ourcontacts')
+		{
+			$second = 'Контакты';
+		}
+		if($arr[1] == 'cart')
+		{
+			$second = 'Корзина';
+		}
+		if($arr[1] == 'book')
+		{
+			$book = Products::where('showhide', 'show')->where('id', $arr[2])->first();
 		}
 
-		// if($arr[1] == 'sales'){
+		if($arr[1] == 'author')
+		{
+			$author = Authors::where('showhide', 'show')->find($arr[2]);
+		}
 
-		// }
 
-if($arr[1] == 'book')
-{
-	$book = Products::find($arr[2]);
 
-}
-
-		$view->with('category', $category)->with('category2', $category2)->with('book', $book);	
+		$view->with('category', $category)->with('category2', $category2)->with('book', $book)->with('second', $second)->with('authorBread', $author);	
 	}
 }

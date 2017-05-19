@@ -57,9 +57,11 @@ Cart::update($item->rowId, $item->qty + 1);
         Cart::update($rowId[0], $item->qty - 1);
     }
 */
-    $cart = Cart::content();
 
-    return view('cart', array('cart' => $cart, 'title' => 'Welcome', 'description' => '', 'page' => 'home'));
+	$sum = Cart::subtotal();
+	$count = Cart::count();
+    $cart = Cart::content();
+    return view('cart', array('cart' => $cart, 'title' => 'Welcome', 'description' => '', 'page' => 'home'))->with('sum', $sum)->with('count', $count);
 
     }
 

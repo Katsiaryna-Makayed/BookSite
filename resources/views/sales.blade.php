@@ -1,23 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-<h2>Акции</h2> 
-<div class="row" id = "row0">
-	
-		<a  class="good-ref">  
-		
-		<img src = "{{asset('public/img/sale.jpg')}}"  >
-	
-		</a>
-		<a  class="good-ref">  
-		
-		<img src = "{{asset('public/img/sale2.png')}}"  width = "300" height="150">
-	
-		</a>
-		
-			
-   
+
+<div class="headline"> Акции</div> 
+
+
+
+<div class="sale15">
+    <img src="{{asset('public/img/car5.jpg')}}" width = "200", height = "200">
+    <span>-15%</span>
 </div>
+
+<div class="sale15">
+    <img src="{{asset('public/img/car5.jpg')}}" width = "200", height = "200">
+    <span>-15%</span>
 </div>
+
+<div class="sale15">
+    <img src="{{asset('public/img/22.png')}}" width = "200", height = "200">
+    <span>-10%</span>
+</div>
+
+
+
+
 @endsection
