@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 use Cart;
 use App\Products;
 
-
+ 
 class CartController extends Controller
 {
     /**
@@ -57,11 +57,11 @@ Cart::update($item->rowId, $item->qty + 1);
         Cart::update($rowId[0], $item->qty - 1);
     }
 */
+$sum = Cart::subtotal();
+        $count = Cart::count();
+        $cart = Cart::content();
 
-	$sum = Cart::subtotal();
-	$count = Cart::count();
-    $cart = Cart::content();
-    return view('cart', array('cart' => $cart, 'title' => 'Welcome', 'description' => '', 'page' => 'home'))->with('sum', $sum)->with('count', $count);
+        return view('cart', array('cart' => $cart, 'title' => 'Welcome', 'description' => '', 'page' => 'home'))->with('sum', $sum)->with('count', $count);
 
     }
 
@@ -141,6 +141,12 @@ Cart::update();
     return view('cart')->with('cart', array('cart' => $cart, 'title' => 'Welcome', 'description' => '', 'page' => 'home'));
 
     }
+
+    public function order(Request $request)
+    {
+        //
+    }
+
 }
 /*
 

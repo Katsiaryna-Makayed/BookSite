@@ -10,18 +10,16 @@ use App\Authors;
 class BreadComposer{
 	public function compose(View $view)
 	{
-$url = $_SERVER['REQUEST_URI'];
+		$url = $_SERVER['REQUEST_URI'];
 		$category2 = null;
 		$book = null;
 		$second = null;
 		$author = null;
+		$category = null;
 		$arr = explode('/', $url);
-		if($arr[1] == 'genre')
+		if($arr[1] == 'genre' || $arr[1] == 'filter')
 		{
 			$category = Categories::where('showhide', 'show')->where('id', $arr[2])->first();
-			//dd ($category);
-		//	if()
-		//	$category2=Products::where('showhide', 'show')->where('categories_id', $id)->get();
 			if(isset($arr[3]))
 			{
 				$category2 = Categories::where('showhide', 'show')->where('id', $arr[3])->first();
@@ -30,22 +28,27 @@ $url = $_SERVER['REQUEST_URI'];
 		else {
 			$category = new Categories;
 		}
+
 		if($arr[1] == 'sales')
 		{
 			$second = 'Акции';
 		}
+
 		if($arr[1] == 'new')
 		{
 			$second = 'Новинки';
 		}
+
 		if($arr[1] == 'ourcontacts')
 		{
 			$second = 'Контакты';
 		}
+
 		if($arr[1] == 'cart')
 		{
 			$second = 'Корзина';
 		}
+
 		if($arr[1] == 'book')
 		{
 			$book = Products::where('showhide', 'show')->where('id', $arr[2])->first();
@@ -53,7 +56,7 @@ $url = $_SERVER['REQUEST_URI'];
 
 		if($arr[1] == 'author')
 		{
-			$author = Authors::where('showhide', 'show')->find($arr[2]);
+			$author = Authors::where('showhide', 'show')->where('id', $arr[2])->first();
 		}
 
 

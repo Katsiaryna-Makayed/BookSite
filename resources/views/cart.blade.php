@@ -1,32 +1,31 @@
 @extends('layouts.app')
 <link href="{{asset('public/css/cart.css')}}" type="text/css" rel="stylesheet">
+<link href="{{asset('public/css/filter.css')}}" type="text/css" rel="stylesheet">
 @section('content')  
 
-
-	<div class="col-md-8 ">
 <section id="cart_items">
-   
-        <div class="table-responsive cart_info">
-            @if(count($cart))
-            <table class="table table-condensed">
+	<div class="table-responsive cart_info">
+    @if(count($cart))
+		<div class="col-md-9 ">		
+            <table class="table table-hover">
                 <thead>
-                     <tr class="cart_menu">
+					<tr class="cart_menu">
                         <td class="image">Товар</td>
                         <td class="description">Описание</td>
                         <td class="price">Цена</td>
                         <td class="quantity">Количество</td>
                         <td class="total">Общая сумма</td>
-                        <td></td>
                     </tr>
                 </thead>
+				
                 <tbody>
-                    @foreach($cart as $item)
+                @foreach($cart as $item)
                     <tr>
                         <td class="cart_product">
                            <img src = "{{asset('public/img/maple.jpg')}}"  width = "100" height = "100">   
                         </td>
                         <td class="cart_description">
-                            <a href="">{{$item->name}}</a>                           
+                            <a href="">{{$item->name}}</a>   						
                         </td>
                         <td class="cart_price">
                             ${{$item->price}}
@@ -45,50 +44,57 @@
                             <a href="{{ url('delete-cart-product/' .$item->rowId) }}"><i class="fa fa-times"></i></a>
                         </td>
                     </tr>
-                    </tbody>
-                    @endforeach
-                  </table>
-
-                    @else
-                <p>Корзина пуста!</p>
-                @endif
-                
-            
-        </div>
-  
-</section> <!--/#cart_items-->
-</div>
-
-	<div class="col-md-4 ">
-	<div class="panel panel-default">
+                </tbody>
+                @endforeach
+            </table>
+		</div>
+		
+		<div class="col-md-3 ">
+			<div class="panel panel-default">
 				<div class="panel-heading">
-					<div class="cart_total_price">Количество товаров: {{$count}}</div>
-					<div class="cart_total_price">Сумма заказа: {{$sum}} руб.</div>
+					<p class="small-header-left" id = "weight-normal">Количество: </p> 
+					<p class = "small-header-right">{{$count}}</p>
+					<p class="small-header-left" id = "weight-normal">Сумма заказа: </p> 
+					<p class = "small-header-right">{{$sum}} руб.</p>
 				</div>
 				
-				<div class="panel-body ">
-				<form class="order-info" name="order-info" action="" method="post">
-					 <p>Способ доставки</p>
-					<div class="radio">
-						<input id="post" type="radio" name="post-deliver" value="post-deliver">
-                        <label for="post-deliver">почтой</label>
-                        <input id="courier" type="radio" name="courier" value="courier">
-                        <label for="courier">курьером</label>
-                    </div>
-					<div class = "row">Ваше имя: 
-					<input type="text" name="phone" placeholder="Введите номер телефона">
+				<form name="order-info" method="get" action="">
+					<div class="panel-body" id="order-panel"> 
+                    	<div>
+							<p class="small-header-left">Ваше имя: </p>
+							<input class = "small-inp" type="text" name="user-name" placeholder=" напр. Виталий">
+						</div>
+						<div>
+							<p class="small-header-left">Номер телефона: </p>
+							<input class = "small-inp" type="text" name="user-phone" placeholder=" +375 (29)_ _ _ _ _ _ _">
+						</div>
+						<div>
+							<p class="small-header-center">Способ доставки:</p>
+							<div class="radio" id = "deliver">   
+								<input id="by-post" type="radio" name="deliver" value="by-post">
+								<label for="by-post" id = "deliver">Доставка почтой</label>
+								<input id="courier" type="radio" name="deliver" value="courier">
+								<label for="courier" id ="deliver" >Доставка курьером</label>
+							</div>
+						</div>
+
+						<div class = "small-text">Сбор заказа составит 1 день. Подробности доставки уточняются у диспетчера </div>
+						<div class = "butt-center">
+							<a href=""><button class="btn" id="small">Подтвердить заказ</button></a>
+						</div>
 					</div>
-					<div class = "row">номер для связи: 
-					<input type="text" name="phone" placeholder="Введите номер телефона">
-					</div>
-					
-					<p>Сбор заказа 1 день </p>
-					
-					 <a href=""><button class="btn" id="small">Подтвердить</button></a>
 				</form>
-				
-				</div>
-	
+			</div>
+		</div>
+			
+	@else
+		<div class = "small-text" id = "bigger">Ваша корзина пуста :( </div>
+		<div class = "small-text" id = "bigger">
+			Чтобы добавить товар в корзину, воспользуйтесь удобным поиском или выберите книгу из каталога предложенных товаров
+		</div>
+		<div class = "small-text" id = "bigger">Хороших покупок! </div>
+	@endif
 	</div>
-</div>
+</section> <!--/#cart_items-->
+
 @endsection

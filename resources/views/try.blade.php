@@ -2,25 +2,32 @@
 <link rel="stylesheet" href="{{asset('public/css/font-awesome.min.css')}}">
 @section('content')
 <div class="row">
-<div class="col-md-5">
-<img src = "{{asset('/public/uploads/'.$book->photo)}}" alt = "{{$book->name}} картинка" width="450"  height="450">
+
+<div class="col-md-4">
+<img src = "{{asset('/public/uploads/'.$book->photo)}}" alt = "{{$book->name}} картинка" width="336"  height="462">
 </div>
 
 
-<div class="col-md-7">
+<div class="col-md-8">
 
-	<h1>{{$book->name}}</h1>
+	<h3>{{$book->name}}</h3>
+	<hr>
 	<div>Цена: {{$book->price}}</div>
 	<div>Автор: <a href="{{url('author/'.$book->authors_id)}}">{{$book->authors->fio}}</a></div>
 	<div>Описание: {{$book->description}}</div>
-	
-	<button type="submit" class="btn btn-fefault add-to-cart" id="small">
+	                    <form method="POST" action="{{url('cart')}}">
+                        <input type="hidden" name="product_id" value="{{$book->id}}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <button type="submit" class="btn btn-fefault add-to-cart" id="small">
                             <i class="fa fa-shopping-cart"></i> В корзину
                         </button>
+                        
+                    </form> 
 </div>
 
 </div>
 <br>
+
 <!--ДРУГИЕ КНИГИ АВТОРА-->	
 	<div class="panel panel-default">
 			<div class="panel-heading">
@@ -30,11 +37,11 @@
 				<div class="row">				
 					@foreach($author_books as $one)									
 						<div class="col-sm-2 ">				
-						<a class = "border" href="{{url('book/'.$one->id)}}">
-						<div class="good-ref">						
-								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="150"  height="150">
-								<div>{{$one->name}}</div>						
-						</div>
+						<a  href="{{url('book/'.$one->id)}}">
+							<div class="good-ref-small">						
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="148"  height="204">
+								<div class = "descr-name">{{$one->name}}</div>
+							</div>
 						</a>
 						</div>
 	      			@endforeach    			

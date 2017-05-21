@@ -58,10 +58,37 @@ class Products extends Model {
     }
 
     public function comments()
-{
-return $this->hasMany('App\Comments','article_id','id');
-}
+    {
+        return $this->hasMany('App\Comments','article_id','id');
+    }
     
+    public function scopeFilterprice($query, $in)
+    {
+      if($in == 'price-up')
+      {
+        $res = 'DESC';
+      }
+      else {
+        $res = 'ASC';
+      }
+      return $query->orderBy('price', $res);
+    }
     
-    
+    public function scopeFilteryear($query, $in)
+    {
+      if($in == 'new-first')
+      {
+        $res = 'DESC';
+      }
+      else {
+        $res = 'ASC';
+      }
+      return $query->orderBy('year', $res);
+    }
+
+    public function scopeFilterpopularity($query, $in)
+    {
+      
+    }
+
 }

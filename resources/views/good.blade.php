@@ -2,57 +2,44 @@
 <link href="{{asset('public/css/filter.css')}}" type="text/css" rel="stylesheet">
 @section('content')
 
-
-<div class="row">
-    <h2>Все книги категории </h2>
-
+<h3>Все книги категории</h3> 
+<hr>
     <div class="col-md-2">
-        <div class="panel panel-default" >
+     
+		<div class="panel panel-default" >
             <div class="panel-heading">
-                <h4 class="panel-title" id="filter">Фильтры</h4>
+              <h3 class="panel-title">Фильтры</h3>
             </div>  
             <form name="filter" method="get" action="/filter/{{$category->parent_id}}/{{$category->id}}">
                 <div class="panel-body" id="filter-panel"> 
                     
-                    <p>Популярность</p>
-                        
-                    <div class="radio">
+                    <p class="small-header-center">Популярность</p>
+                    <div class="radio">   
                         <input id="popular-first" type="radio" name="popularity" value="popular-first">
-                        <label for="popular-first">популярные сначала</label>
+                        <label for="popular-first">возрастание</label>
                         <input id="popular-last" type="radio" name="popularity" value="popular-last">
-                        <label for="popular-last">популярные в конце</label>
+                        <label for="popular-last">убывание</label>
                     </div>
                     
-                    <p>Обложка</p> 
-
-                    <div class="checkbox">        
-                        <input id="soft-cover" type="checkbox" name="cover" value="soft-cover">
-                        <label for="soft-cover">мягкая обложка</label>        
-                        <input id="cardboard" type="checkbox" name="cover" value="cardboard">
-                        <label for="cardboard">картоная</label>       
-                        <input id="hard-cover" type="checkbox" name="cover" value="hard-cover">
-                        <label for="hard-cover">твердая обложка</label>
-                    </div>
-                    
-                    <p>Год выхода</p>
+                    <p class="small-header-center" >Новизна</p>
 
                     <div class="radio">
                         <input id="new-first" type="radio" name="year" value="new-first">
-                        <label for="new-first">сначала новые</label>
+                        <label for="new-first">возрастание</label>
                         <input id="new-last" type="radio" name="year" value="new-last">
-                        <label for="new-last">сначала старые</label>
+                        <label for="new-last">убывание</label>
                     </div>
                     
-                    <p>Цена</p>
+                    <p class="small-header-center">Цена</p>
 
                     <div class="radio">
                         <input id="price-up" type="radio" name="price" value="price-up">
-                        <label for="price-up">возрастание цены</label>
+                        <label for="price-up">возрастание</label>
                         <input id="price-down" type="radio" name="price" value="price-down">
-                        <label for="price-down">убывание цены</label>
+                        <label for="price-down">убывание</label>
                     </div>
                     
-                    <p>Наличие</p>
+                    <p class="small-header-center">Наличие</p>
 
                     <div class="checkbox">        
                         <input id="storage" type="checkbox" name="availability" value="storage">
@@ -60,35 +47,36 @@
                         <input id="order" type="checkbox" name="availability" value="order">
                         <label for="order">под заказ</label>
                     </div>   
-                    <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <input class="btn" type="submit" id="small" value="Применить">
+					<div class = "butt-center">
+						<a href=""><button class="btn" id="small">Применить</button></a>
+					</div>
                 </div>
             </form>
-        </div>
+        
+		</div>
     </div>
               
     <div class="col-md-10">
-
+ 
         @foreach($books as $product) 
             <div class="col-sm-4">
-                <p>{{$product->name}}</p>
-                <img src = "{{asset('/public/uploads/'.$product->photo)}}" alt = "{{$product->name}} Картинка" width="250"  height="150">
-                <div class="btn-group">
-                    <a href="{{url('book/'.$product->id)}}"><button class="btn" id="small">Просмотр</button></a>
-                    <form method="POST" action="{{url('cart')}}">
-                        <input type="hidden" name="product_id" value="{{$product->id}}">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit" class="btn btn-fefault add-to-cart" id="small">
-                            <i class="fa fa-shopping-cart"></i> В корзину
-                        </button>
-                        
-                    </form>   
-                </div> 
+                			
+						<a  href="{{url('book/'.$product->id)}}">
+							<div class="good-ref-big">						
+								<img src = "{{asset('/public/uploads/'.$product->photo)}}" alt = "{{$product->name}}" width="160"  height="220">
+								<div class = "descr-name">{{$product->name}}</div>
+								<div class = "descr-author">{{$product->authors->fio}}</div>
+								<div class = "descr-price">{{$product->price}}</div>
+						
+							</div>
+						</a>
+					
+               
                       
             </div>
         @endforeach
 
     </div>  
-</div> 
+
 @endsection
 

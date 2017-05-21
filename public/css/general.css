@@ -1,10 +1,8 @@
 body{
 	background-color: #FFFFFF;
-	
 	font-family: arial; 
 	font-size: 12pt;
 }
-
 
 a {
 	color: #40382D; 
@@ -32,6 +30,8 @@ html{
 	background: #FCF2BB;
 	color: #40382D; 
 	border:2px solid #40382D; 
+	margin-bottom:-5px;
+	
 }
 .btn:hover { 
 	box-shadow: inset 0 -60px 0 #FCF2BB, 2px 2px 3px rgba(0,0,0,0.7);
@@ -47,6 +47,13 @@ html{
 	border:2px solid #40382D; 
 	text-decoration: none;
 } /* при нажатии */
+
+.butt-center{
+	width:100%;
+	display:flex;
+justify-content:center;
+	
+}
 
 #small{
 	font-size: 12px;
@@ -181,17 +188,34 @@ text-align: center;  }
   border-color: #311c24
 }
 
-.good-ref{
+.good-ref-big{
 border: 2px solid white;
 padding: 3px;
 margin-bottom:10px;
 text-align:center;
 font-size: 14px;
 font-family: arial;
-height:240px;
+
 }
 
-.good-ref:hover{
+.good-ref-big:hover{
+border: 2px solid #FCF2BB;
+padding: 3px;
+border-radius:3px;
+}
+
+.good-ref-small{
+border: 2px solid white;
+padding: 3px;
+margin-bottom:10px;
+text-align:center;
+font-size: 14px;
+font-family: arial;
+height:260px;
+	
+}
+
+.good-ref-small:hover{
 border: 2px solid #FCF2BB;
 padding: 3px;
 border-radius:3px;
@@ -200,14 +224,14 @@ border-radius:3px;
 
 .descr-name{
 
-	font-size: 13pt;
+	font-size: 12pt;
 	color:#281F1F;
 	
 }
 
 .descr-price{
 
-	font-size: 13pt;
+	font-size: 12pt;
 	color:#281F1F;
 	
 }
@@ -218,11 +242,7 @@ border-radius:3px;
 	background-color:#FCF2BB ;
 	font-family:arial
 }
-.headline{
-	text-align:center;
-	font-size:24px;
-	
-}
+
 
 #email, #password, #name, #password-confirm{
 	border: 1px solid #281F1F;
@@ -241,6 +261,47 @@ p{
 	font-size:14px;	
 }
 
+.small-header-left{
+	margin-bottom:-1px;
+	text-align:left;
+	font-size:15px;	
+	float: left; /* Обтекание справа */ 
+    width: 45%;
+}
+.small-header-right {
+    text-align: right; 
+	font-size:16px;	
+	margin-bottom:-1px;
+}
+#weight-normal{
+	font-weight:normal;
+	margin-bottom:-1px;
+}
+
+
+.small-header-center{
+	text-align:center;
+	font-size:15px;		
+	font-weight:bold;
+	margin-bottom:-8px;
+}
+
+#for-cetegory{
+	margin-bottom:1px;
+	
+}
+
+.small-text{
+	text-align:center;
+	font-size:12px;		
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+#bigger{
+	font-size:20px;		
+	font-weight:normal;
+}
 .btn-group{
 	display: flex;
 	flex-direction: row;
@@ -264,16 +325,18 @@ textarea {
 }
 
 
-.sale15 {
+.sale-line {
     display:inline-block;   
     position:relative;
+	  /* Для Firefox */
+
  
 }
-.sale15 span {
+.sale-line span {
     display:inline-block;
     position:absolute;
-    top:130px;   
-    left:0px;
+    top:20px;   
+    left:120px;
      
     /* Оформление текста */
     color:#FFF;
@@ -281,7 +344,21 @@ textarea {
     font-size:20px; 
      
     /* Фон */
-    background-color:rgba(255, 0, 0, 0.4);
+    background-color:rgba(255, 0, 0, 0.9);
+	border: 2px groove #ffffff;
     padding:5px 10px;
+	
 }
 
+.row1{
+	display: inline;
+}
+
+h3{
+	text-align:center;
+}
+
+hr{
+border-top: 1px solid #8c8b8b;
+	
+}

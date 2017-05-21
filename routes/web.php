@@ -11,29 +11,21 @@
 |
 */
 
-
+ 
 
 Route::get('/', 'BaseController@getIndex');
 Route::post('/cart', 'CartController@index');
+Route::post('/order', 'CartController@order');
 Route::get('/cart', 'CartController@index');
 Route::get('/delete-cart-product/{id}', 'CartController@removeItem');
-
 Route::get('/author/{id}', 'BaseController@getAuthors');
 Route::post('/search', 'SearchController@getIndex');
-
 Route::post('/book/{id}', 'CommentsController@save');
-
-//Route::resource('cart', 'CartController', ['only' => ['index', 'store', 'update', 'destroy']]);
-Route::get('/about', 'BaseController@index');
-//Route::get('/sales', 'BaseController@getIndex');
+Route::get('/ourcontacts', 'BaseController@contact');
 Auth::routes();
 Route::get('/sales', 'BaseController@getSales');
 Route::get('/new', 'BaseController@getNew');
 Route::get('/logout', 'HomeController@getLogout');
-
-//Route::get('/basket', 'BasketController@getIndex');
- 
-//Route::post('/basket', 'BasketController@postBasket');
 Route::get('/home', 'BaseController@getIndex');
 Route::get('/genre/{id1}/{id}', 'GenreController@getGoods');
 Route::get('/filter/{id1}/{id}', 'BookController@getFilter');

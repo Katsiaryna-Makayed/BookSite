@@ -2,26 +2,59 @@
 
 @section('content')
 
-<div class="headline"> Акции</div> 
+<h3>Акции</h3> 
+<hr>
+
+@foreach($sale_15 as $one)										
+					<div class="col-sm-3 ">				
+						<a  href="{{url('book/'.$one->id)}}">
+							<div class="good-ref-big">						
+								<div class="sale-line">
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="160"  height="220">
+								<span>-15%</span>
+								</div>
+								<div class = "descr-name">{{$one->name}}</div>
+								<div class = "descr-author">{{$one->authors->fio}}</div>
+								<div class = "descr-price">{{$one->price}}</div>
+						
+							</div>
+						</a>
+					</div>
+@endforeach 
 
 
 
-<div class="sale15">
-    <img src="{{asset('public/img/car5.jpg')}}" width = "200", height = "200">
-    <span>-15%</span>
-</div>
+@foreach($sale_10 as $one)										
+					<div class="col-sm-3 ">				
+						<a  href="{{url('book/'.$one->id)}}">
+							<div class="good-ref-big">						
+								<div class="sale-line">
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="160"  height="220">
+								<span>-10%</span>
+								</div>
+								<div class = "descr-name">{{$one->name}}</div>
+								<div class = "descr-author">{{$one->authors->fio}}</div>
+								<div class = "descr-price">{{$one->price}}</div>
+						
+							</div>
+						</a>
+					</div>
+@endforeach 
 
-<div class="sale15">
-    <img src="{{asset('public/img/car5.jpg')}}" width = "200", height = "200">
-    <span>-15%</span>
-</div>
-
-<div class="sale15">
-    <img src="{{asset('public/img/22.png')}}" width = "200", height = "200">
-    <span>-10%</span>
-</div>
-
-
-
-
+@foreach($sale_5 as $one)										
+					<div class="col-sm-3 ">				
+						<a  href="{{url('book/'.$one->id)}}">
+							<div class="good-ref-big">						
+								<div class="sale-line">
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="160"  height="220">
+								<span>-5%</span>
+								</div>
+								<div class = "descr-name">{{$one->name}}</div>
+								<div class = "descr-author">{{$one->authors->fio}}</div>
+								<div class = "descr-price">{{$one->price}}</div>
+						
+							</div>
+						</a>
+					</div>
+@endforeach 
 @endsection

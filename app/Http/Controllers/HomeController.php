@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $new_books = Products::where('showhide', 'show')->orderBy('created_at', 'DESC')->limit(4)->get();
+        $new_books = Products::where('showhide', 'show')->orderBy('created_at', 'DESC')->get();
         return view('home')->with('new_books', $new_books);  
     }
 	public function getLogout(){

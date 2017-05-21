@@ -32,23 +32,27 @@ class BaseController extends Controller
     } 
     
     public function getIndex(){
-        $new_books = Products::where('showhide', 'show')->orderBy('created_at', 'DESC')->limit(4)->get();
-        $sale_books = Products::where('showhide', 'show')->orderBy('sale', 'sale_5')->limit(4)->get();
-        $pop_books = Products::where('showhide', 'show')->orderBy('quantity', 'DESC')->limit(4)->get();
+        $new_books = Products::where('showhide', 'show')->orderBy('created_at', 'DESC')->get();
+        $sale_books = Products::where('showhide', 'show')->orderBy('sale', 'sale_5')->get();
+        $pop_books = Products::where('showhide', 'show')->orderBy('quantity', 'DESC')->get();
         return view('home')->with('new_books', $new_books)->with('sale_books', $sale_books)->with('pop_books', $pop_books);
          
          
     } 
     
     public function getNew(){
-        return view('new');
+        $new_books = Products::where('showhide', 'show')->orderBy('created_at', 'DESC')->get();
+        return view('new')->with('new_books', $new_books);
         
     } 
     
     public function getSales(){
-        return view('sales');
-        
+        $sale_5 = Products::where('showhide', 'show')->where('sale', 'sale_5')->get();
+        $sale_10 = Products::where('showhide', 'show')->where('sale', 'sale_10')->get();
+        $sale_15 = Products::where('showhide', 'show')->where('sale', 'sale_15')->get();
+        return view('sales')->with('sale_5', $sale_5)->with('sale_10', $sale_10)->with('sale_15', $sale_15);
     } 
+    
     public function getAuthors($id){
         $author = Authors::find($id);
         $author_books = Products::where('showhide', 'show')->where('authors_id', $id)->get();
@@ -56,9 +60,13 @@ class BaseController extends Controller
         
     } 
     
+    public function contact(){
+        return view('about');
+    }
     /*public function getIndex(){
         //$text = Goods:: where('url', 'index')->first();
         $all=Books::where('showhide','show')->paginate(10);     
         return view('try')->with('all', $all);      
     }*/
 }
+
