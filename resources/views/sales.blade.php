@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h3>Акции</h3> 
+<h3 id = "weight-normal">Акции</h3> 
 <hr>
 
 @foreach($sale_15 as $one)										

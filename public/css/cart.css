@@ -4,8 +4,6 @@ margin-left: 1px;
 }
 
 td{
-border-bottom: 1px solid #281F1F;
-border-top: 1px solid #281F1F;
 text-align:center;
 }
 
@@ -16,12 +14,14 @@ thead{
 
 tr{
 	margin:20px;
-	border-bottom: 2px solid #281F1F;
-	border-top: 2px solid #281F1F;
+	border-bottom: 1px solid #281F1F;
+	border-top: 1px solid #281F1F; 
 }
 
 table{
 width:100%;
 }
 
-
+.cart_quantity_input{
+text-align:center;	
+}

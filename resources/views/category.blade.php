@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h3>{{$category_one->name}}</h3> 
+<h3 id = "weight-normal">{{$category_one->name}}</h3> 
 <hr>
 	<div class="row">	
 	@foreach($category as $one)
@@ -24,9 +24,3 @@
 
 
 @endsection
-
-<!--<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}} картинка" width="150"  height="150">
-			
-			
-			добавить в бд поле для иллюстрации
-			НЕ РАБОТАЮТ СТРАНИЦЫ С КАТЕГОРИЯМИ-->

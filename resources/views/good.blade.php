@@ -2,7 +2,7 @@
 <link href="{{asset('public/css/filter.css')}}" type="text/css" rel="stylesheet">
 @section('content')
 
-<h3>Все книги категории</h3> 
+<h3 id = "weight-normal" >Все книги категории</h3> 
 <hr>
     <div class="col-md-2">
      

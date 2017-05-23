@@ -1,21 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-<p>Результаты поиска: </p>
-
+<h3 id = "weight-normal">Результаты поиска </h3> 
+<hr>
     	@if(isset($categories[0]) || isset($products[0]) || isset($authors[0]))
 
 	    	@if(isset($categories[0]))
-			<p>Совпадения по категории:</p>
+				
+			<div id = "f14">Совпадения по категории:</div>
 	    	<div class="row">	
 			@foreach($categories as $category)   		
 			<div class="col-sm-3 ">				
 			<a  href="#">
 			<div class="good-ref-big">	
-		<img src = "{{asset('/public/uploads/'.$category->photo)}}" alt = "{{$category->name}}" width="200"  height="200">
-
-		<p class="small-header-center" id = "for-cetegory">{{$category->name}}</p>
-		</div>
+			<img src = "{{asset('/public/uploads/'.$category->photo)}}" alt = "{{$category->name}}" width="200"  height="200">
+			<p class="small-header-center" id = "for-cetegory">{{$category->name}}</p>
+			</div>
 
 			</a>
 			</div>
@@ -25,7 +25,7 @@
 
 
 	    	@if(isset($products[0]))
-	    	<div>Совпадения в списке товаров:</div>
+	    	<div id = "f14">Совпадения в списке товаров:</div>
 	    	<div class="row">	
 			@foreach($products as $product)
 			<div class="col-sm-3 ">				
@@ -42,16 +42,15 @@
 	    	@endforeach
 			</div>
 	    	@endif
-
+		<div id = "f14">Совпадения по автору:</div>
 	    	@if(isset($authors[0]))
-	    	<div>Совпадение по автору:</div>
 	    	<div class="row">	
 			@foreach($authors as $author)
 	    	<div class="col-sm-3 ">				
-			<a  href="#">
+			<a  href="{{url('author/'.$author->id)}}">
 			<div class="good-ref-big">					
 			<img src = "{{asset('/public/uploads/'.$author->photo)}}"  width="160"  height="220">
-			<div >{{$author->fio}}</div>
+			<div class = "descr-name">{{$author->fio}}</div>
 			</div>
 
 			

@@ -42,7 +42,7 @@
 	<div class="col-md-8">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Скидки 5-15%</h3>
+				<h5 class="panel-title">Скидки 5-15%</h5>
 			</div>
 				
 			<div class="panel-body">
@@ -54,7 +54,7 @@
 								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="106"  height="146">
 								<div class = "descr-name">{{$one->name}}</div>
 								<div class = "descr-author">{{$one->authors->fio}}</div>
-								<div class = "descr-price">{{$one->price}}</div>
+								<div class = "descr-price">{{$one->price}} руб.</div>
 						
 							</div>
 						</a>
@@ -66,7 +66,7 @@
 		
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Новые поступления</h3>
+				<h5 class="panel-title">Новые поступления</h5>
 			</div>
 			<div class="panel-body">
 				<div class="row">				
@@ -77,7 +77,7 @@
 								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="106"  height="146">
 								<div class = "descr-name">{{$one->name}}</div>
 								<div >{{$one->authors->fio}}</div>
-								<div class = "descr-price">{{$one->price}}</div>
+								<div class = "descr-price">{{$one->price}} руб.</div>
 							</div>
 						</a>
 					</div>
@@ -102,7 +102,7 @@
 								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="106"  height="146">
 								<div class = "descr-name">{{$one->name}}</div>
 								<div >{{$one->authors->fio}}</div>
-								<div class = "descr-price">{{$one->price}}</div>
+								<div class = "descr-price">{{$one->price}} руб.</div>
 							</div>
 						</a>
 					</div>

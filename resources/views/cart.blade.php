@@ -22,7 +22,7 @@
                 @foreach($cart as $item)
                     <tr>
                         <td class="cart_product">
-                           <img src = "{{asset('public/img/maple.jpg')}}"  width = "100" height = "100">   
+                           <img src = "{{asset('public/img/maple.jpg')}}"  width="106"  height="146">   
                         </td>
                         <td class="cart_description">
                             <a href="">{{$item->name}}</a>   						

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h3>Новые поступления</h3> 
+<h3 id = "weight-normal">Новые поступления</h3> 
 <hr>
 
 					

@@ -12,16 +12,19 @@
 
 	<h3>{{$book->name}}</h3>
 	<hr>
-	<div>Цена: {{$book->price}}</div>
-	<div>Автор: <a href="{{url('author/'.$book->authors_id)}}">{{$book->authors->fio}}</a></div>
-	<div>Описание: {{$book->description}}</div>
+	
+	<div class = "descr-name" id = "f14"><a href="{{url('author/'.$book->authors_id)}}"> {{$book->authors->fio}}, {{$book->year}}  </a></div>
+	<div class = "descr-name" id = "f18">{{$book->price}} руб.</div>
+	<div class = "descr-name" id = "f14">Описание: </div>
+	<div class = "descr-name" >{{$book->description}}</div>
 	                    <form method="POST" action="{{url('cart')}}">
                         <input type="hidden" name="product_id" value="{{$book->id}}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit" class="btn btn-fefault add-to-cart" id="small">
+                       <div class = "butt-center" id = "with-margin">
+					   <button type="submit" class="btn btn-fefault add-to-cart" id="big-button">
                             <i class="fa fa-shopping-cart"></i> В корзину
-                        </button>
-                        
+                       </button>
+                        </div>
                     </form> 
 </div>
 
@@ -31,7 +34,7 @@
 <!--ДРУГИЕ КНИГИ АВТОРА-->	
 	<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Другие книги автора </h3>
+				<h5 class="panel-title">Другие книги автора </h5>
 			</div>
 			<div class="panel-body">
 				<div class="row">				
@@ -50,16 +53,16 @@
 	</div>
 	
 	<!--КОММЕНТАРИИ-->
-	<h3> Комментарии: </h3>
+	
 	@if(isset($message))
 	<p>$message
-	ваоплывапоыэвапы
 	</p>
 	@endif
 	@if(!Auth::guest())
-		<form method="POST">
+	<h4>Оставить комментарий: </h4>	
+	<form method="POST">
 		<input type="hidden" name="user_id" value="{{$user->id}}">
-			Ваше сообщение:<br>
+			
 		<textarea name="content"></textarea><br>
 		<input type="hidden" name="_token" value="{{csrf_token()}}">
 		<input type="submit" class="btn" id="com-btn" value="Отправить">
