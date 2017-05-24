@@ -47,11 +47,34 @@
 				
 			<div class="panel-body">
 				<div class="row">				
-				@foreach($sale_books as $one)										
+				@foreach($sale_books as $one)	  									
 					<div class="col-sm-3 col-xs-3">				
 						<a  href="{{url('book/'.$one->id)}}">
 							<div class="good-ref-small">						
+								@if($one->sale == "no_sale")
 								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="106"  height="146">
+								@endif	
+
+								@if($one->sale == "sale_5")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="106"  height="146">
+								<span id="small1">-5%</span>
+								</div>
+								@endif	
+
+								@if($one->sale == "sale_10")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="106"  height="146">
+								<span id="small1">-10%</span>
+								</div>
+								@endif	
+
+								@if($one->sale == "sale_15")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="106"  height="146">
+								<span id="small1">-15%</span>
+								</div>
+								@endif	
 								<div class = "descr-name">{{$one->name}}</div>
 								<div class = "descr-author">{{$one->authors->fio}}</div>
 								<div class = "descr-price">{{$one->price}} руб.</div>
@@ -74,7 +97,35 @@
 					<div class="col-sm-3 col-xs-3">				
 						<a  href="{{url('book/'.$one->id)}}">
 							<div class="good-ref-small">						
+								@if($one->sale == "no_sale")
 								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="106"  height="146">
+								@endif	
+
+								@if($one->sale == "sale_5")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="106"  height="146">
+								<span id="small1">-5%</span>
+								</div>
+								@endif	
+
+								@if($one->sale == "sale_10")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="106"  height="146">
+								<span id="small1">-10%</span>
+								</div>
+								@endif	
+
+								@if($one->sale == "sale_15")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="106"  height="146">
+								<span id="small1">-15%</span>
+								</div>
+								@endif	
+								
+								
+								
+								
+								
 								<div class = "descr-name">{{$one->name}}</div>
 								<div >{{$one->authors->fio}}</div>
 								<div class = "descr-price">{{$one->price}} руб.</div>
@@ -93,13 +144,36 @@
 				<h5 class="panel-title">Популярные товары</h5>
 			</div>
 				
-			<div class="panel-body ">
+			<div class="panel-body" style="height:1745px;">
 				<div class="row">				
 				@foreach($pop_books as $one)										
 					<div class="col-sm-6 ">				
 						<a  href="{{url('book/'.$one->id)}}">
 							<div class="good-ref-small">						
+								@if($one->sale == "no_sale")
 								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="106"  height="146">
+								@endif	
+
+								@if($one->sale == "sale_5")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="106"  height="146">
+								<span id="small1">-5%</span>
+								</div>
+								@endif	
+
+								@if($one->sale == "sale_10")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="106"  height="146">
+								<span id="small1">-10%</span>
+								</div>
+								@endif	
+
+								@if($one->sale == "sale_15")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="106"  height="146">
+								<span id="small1">-15%</span>
+								</div>
+								@endif	
 								<div class = "descr-name">{{$one->name}}</div>
 								<div >{{$one->authors->fio}}</div>
 								<div class = "descr-price">{{$one->price}} руб.</div>

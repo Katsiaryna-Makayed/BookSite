@@ -8,7 +8,7 @@
      
 		<div class="panel panel-default" >
             <div class="panel-heading">
-              <h3 class="panel-title">Фильтры</h3>
+              <h5 class="panel-title">Фильтры</h5>
             </div>  
             <form name="filter" method="get" action="/filter/{{$category->parent_id}}/{{$category->id}}">
                 <div class="panel-body" id="filter-panel"> 
@@ -63,7 +63,30 @@
                 			
 						<a  href="{{url('book/'.$product->id)}}">
 							<div class="good-ref-big">						
+								@if($product->sale == "no_sale")
 								<img src = "{{asset('/public/uploads/'.$product->photo)}}" alt = "{{$product->name}}" width="160"  height="220">
+								@endif	
+
+								@if($product->sale == "sale_5")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$product->photo)}}" alt = "{{$product->name}}"width="160"  height="220">
+								<span>-5%</span>
+								</div>
+								@endif	
+
+								@if($product->sale == "sale_10")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$product->photo)}}" alt = "{{$product->name}}" width="160"  height="220">
+								<span >-10%</span>
+								</div>
+								@endif	
+
+								@if($product->sale == "sale_15")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$product->photo)}}" alt = "{{$product->name}}" width="160"  height="220">
+								<span>-15%</span>
+								</div>
+								@endif	
 								<div class = "descr-name">{{$product->name}}</div>
 								<div class = "descr-author">{{$product->authors->fio}}</div>
 								<div class = "descr-price">{{$product->price}}</div>

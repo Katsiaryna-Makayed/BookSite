@@ -24,10 +24,33 @@
 			<div class="panel-body">
 				<div class="row">				
 					@foreach($author_books as $one)									
-						<div class="col-sm-2 ">				
+						<div class="col-sm-3 ">				
 						<a  href="{{url('book/'.$one->id)}}">
 							<div class="good-ref-small">						
-								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="148"  height="204">
+								@if($one->sale == "no_sale")
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="160"  height="220">
+								@endif	
+
+								@if($one->sale == "sale_5")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}"width="160"  height="220">
+								<span>-5%</span>
+								</div>
+								@endif	
+
+								@if($one->sale == "sale_10")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="160"  height="220">
+								<span >-10%</span>
+								</div>
+								@endif	
+
+								@if($one->sale == "sale_15")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="160"  height="220">
+								<span>-15%</span>
+								</div>
+								@endif	
 								<div class = "descr-name">{{$one->name}}</div>
 							</div>
 						</a>

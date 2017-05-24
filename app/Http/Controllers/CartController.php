@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Redirect;
 use Cart;
 use App\Products;
+use App\Order;
+
 
  
 class CartController extends Controller
@@ -28,12 +30,26 @@ class CartController extends Controller
     public function index()
     {
         //update/ add new item to cart
-    if (Request::isMethod('post')) {
-        $product_id = Request::get('product_id');
-        $product = Products::find($product_id);
-        Cart::add(array('id' => $product_id, 'name' => $product->name, 'qty' => 1, 'price' => $product->price));
-    }
+        if (Request::isMethod('post')) {
+            $product_id = Request::get('product_id');
+            $product = Products::find($product_id);
+            $sale = $product->sale;
+            $price = $product->price;
+            if($sale == 'sale_5')
+            {
+                $price = ceil($product->price * 95)/100;
+            }
+            if($sale == 'sale_10')
+            {
+                $price = ceil($product->price * 90)/100;
+            }            
+            if($sale == 'sale_15')
+            {
+                $price = ceil($product->price * 85)/100;
+            }
 
+            Cart::add(array('id' => $product_id, 'name' => $product->name, 'qty' => 1, 'price' => $price));
+        }
     //increment the quantity
    /* if (Request::get('product_id') && (Request::get('increment')) == 1) {
         $rowId = Cart::search(array('id' => Request::get('product_id')));
@@ -41,15 +57,15 @@ class CartController extends Controller
 
         Cart::update($rowId[0], $item->qty + 1);
     }*/
-if (Request::get('product_id') && (Request::get('increment')) == 1) {
-$item = Cart::search(function($key, $value) { return $key->id == Request::get('product_id'); })->first();
-Cart::update($item->rowId, $item->qty + 1);
-}
+        if (Request::get('product_id') && (Request::get('increment')) == 1) {
+        $item = Cart::search(function($key, $value) { return $key->id == Request::get('product_id'); })->first();
+        Cart::update($item->rowId, $item->qty + 1);
+        }
     //decrease the quantity
-    if (Request::get('product_id') && (Request::get('decrease')) == 1) {
-        $item = Cart::search(function($key, $value) { return $key->id == Request::  get('product_id'); })->first();
-        Cart::update($item->rowId, $item->qty - 1);
-    }
+        if (Request::get('product_id') && (Request::get('decrease')) == 1) {
+            $item = Cart::search(function($key, $value) { return $key->id == Request::  get('product_id'); })->first();
+            Cart::update($item->rowId, $item->qty - 1);
+        }
 /*if (Request::get('product_id') && (Request::get('decrease')) == 1) {
         $rowId = Cart::search(array('id' => Request::get('product_id')));
         $item = Cart::get($rowId[0]);
@@ -57,11 +73,11 @@ Cart::update($item->rowId, $item->qty + 1);
         Cart::update($rowId[0], $item->qty - 1);
     }
 */
-$sum = Cart::subtotal();
+        $sum = Cart::subtotal();
         $count = Cart::count();
         $cart = Cart::content();
-
-        return view('cart', array('cart' => $cart, 'title' => 'Welcome', 'description' => '', 'page' => 'home'))->with('sum', $sum)->with('count', $count);
+                    //dd($_COOKIE);
+        return view('cart', array('cart' => $cart))->with('sum', $sum)->with('count', $count);
 
     }
 
@@ -84,9 +100,9 @@ $sum = Cart::subtotal();
     public function store(Request $request)
     {
 //        Cart::associate('Products','App')->add($request->id, $request->name, 1, $request->price);
-Cart::update();
+        Cart::update();
         Cart::add($request->id, $request->name, 1, $request->price);
-            $str = 'Item was added to your cart!';
+        $str = 'Item was added to your cart!';
         return redirect('cart')->with('str', $str);  
     }
 
@@ -137,17 +153,12 @@ Cart::update();
 //$item = Cart::search(function($key, $value) { return $key->id == Request::  get('product_id'); })->first();
       //  Cart::remove($item->rowId, $item->qty - 1);
 
-    $cart = Cart::content();
-    return view('cart')->with('cart', array('cart' => $cart, 'title' => 'Welcome', 'description' => '', 'page' => 'home'));
+        $cart = Cart::content();
+        return view('cart')->with('cart', array('cart' => $cart));
 
-    }
+    }           
 
-    public function order(Request $request)
-    {
-        //
-    }
-
-}
+}            
 /*
 
 if (Request::get('product_id') && (Request::get('decrease')) == 1) {

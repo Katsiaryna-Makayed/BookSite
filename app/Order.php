@@ -2,7 +2,13 @@
 
 namespace App;
 
+
 use Illuminate\Database\Eloquent\Model;
+use Laraveldaily\Quickadmin\Observers\UserActionsObserver;
+
+
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Order extends Model
 {
@@ -13,12 +19,11 @@ class Order extends Model
     
     protected $fillable = [
           'body',
+          'phone',
           'comment',
           'status',
           'user_id',
     ];
-    
-    public static $showhide = ["show" => "show", "hide" => "hide", ];
 
 
     public static function boot()
@@ -28,4 +33,4 @@ class Order extends Model
         Products::observe(new UserActionsObserver);
     }
     
-}
+} 

@@ -25,6 +25,7 @@
 
 
 	    	@if(isset($products[0]))
+				
 	    	<div id = "f14">Совпадения в списке товаров:</div>
 	    	<div class="row">	
 			@foreach($products as $product)
@@ -42,8 +43,12 @@
 	    	@endforeach
 			</div>
 	    	@endif
-		<div id = "f14">Совпадения по автору:</div>
+			
+		
 	    	@if(isset($authors[0]))
+			
+			<div id = "f14">Совпадения по автору:</div>	
+			
 	    	<div class="row">	
 			@foreach($authors as $author)
 	    	<div class="col-sm-3 ">				

@@ -19,8 +19,8 @@ class CommentsController extends Controller
 		$this->validate($request, ['content'=>'required|min:5|max:400']);
 		$all=$request->all();//Получаем все данные из формы в массив
 		$all['products_id']=$id;//Добавляем в массив id статьи
-		$all['showhide']='hide';//Добавляем в массив id статьи
+		$all['showhide']='show';//Добавляем в массив id статьи
 		Comments::create($all);//Сохраняем в базу
-		return back()->with('message','Спасибо за комментарий. После проверки он будет опубликован'); //редирект обратно к форме с сообщением
+		return back(); //редирект обратно к форме с сообщением
 	}
 }

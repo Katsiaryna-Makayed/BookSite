@@ -15,7 +15,7 @@
 
 Route::get('/', 'BaseController@getIndex');
 Route::post('/cart', 'CartController@index');
-Route::post('/order', 'CartController@order');
+Route::post('/order', 'BookController@order');
 Route::get('/cart', 'CartController@index');
 Route::get('/delete-cart-product/{id}', 'CartController@removeItem');
 Route::get('/author/{id}', 'BaseController@getAuthors');

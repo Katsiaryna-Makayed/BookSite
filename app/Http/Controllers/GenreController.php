@@ -30,16 +30,27 @@ class GenreController extends Controller
 		$book = Products::find($id);
 		// dd($book);
 		//$author = $book->authors_id;
-		$author_books = Products::where('showhide', 'show')->where('authors_id', $book->authors_id)->get();
+		$author_books = Products::where('showhide', 'show')->where('authors_id', $book->authors_id)->paginate(5);
 
 		$user = Auth::user();
 
+		if($book->sale == 'sale_5')
+        {
+            $book->price = ceil($book->price * 95)/100;
+        }
+		if($book->sale == 'sale_10')
+        {
+            $book->price = ceil($book->price * 9)/100;
+        }
+		if($book->sale == 'sale_15')
+        {
+            $book->price = ceil($book->price * 85)/100;
+        }
+
 		$comments = Comments::where('showhide', 'show')->where('products_id', $id)->get();
-//		$comments=Products::where('showhide', 'show')->find($id)->comments; // выбираем все комментарии, который относятся к статье
-
-
-		return view('try')->with('book', $book)->with('author_books', $author_books)->with('comments', $comments)->with('user', $user);	
+		return view('book')->with('book', $book)->with('author_books', $author_books)->with('comments', $comments)->with('user', $user);	
 	}
+
 	public function checkPanel($id1 = 0, $id = 0)
 	{
 		$books=Products::where('showhide', 'show')->where('categories_id', $id);
@@ -52,17 +63,6 @@ class GenreController extends Controller
 			else $books=Products::where('showhide', 'show')->where('categories_id', $id)->orderBy('price', 'DESC')->get();
 			 
 		}
-
-		// if(isset($_POST['year']))
-		// {
-		// 	if($_POST['year'] == 'new-first') {
-		// 		$books=Products::where('showhide', 'show')->where('categories_id', $id)->orderBy('year', 'ASC')->get();
-		// 	}
-		// 	else $books=Products::where('showhide', 'show')->where('categories_id', $id)->orderBy('year', 'DESC')->get();
-			 
-		// }
-
-
 		return view('good')->with('books', $books);	
 	}
 }

@@ -166,6 +166,10 @@ text-align: center;  }
 	border: 1px solid #281F1F;
 }
 
+#long-body{
+	height = 500px;
+}
+
 .search{
         float: right;
 		margin-top:20px;
@@ -293,7 +297,7 @@ p{
 	text-align:left;
 	font-size:15px;	
 	float: left; /* Обтекание справа */ 
-    width: 45%;
+    
 }
 .small-header-right {
     text-align: right; 
@@ -382,10 +386,28 @@ textarea {
     font-size:20px; 
      
     /* Фон */
-    background-color:rgba(255, 0, 0, 0.9);
+    width:70px;
+	background-color:rgba(255, 0, 0, 0.9);
 	border: 2px groove #ffffff;
-    padding:5px 10px;
+    padding:5px 5px;
 	
+	
+}
+
+#big1{
+	text-align:center;
+	font-size:45px;
+	top:20px;   
+    left:240px;
+	width:130px;
+	padding:10px 5px;
+}
+
+#small1{
+	font-size:17px;
+	top:5px;   
+    left:55px;
+	width:60px;
 }
 
 .row1{
@@ -411,3 +433,12 @@ border-top: 1px solid #8c8b8b;
 	margin-top:4px;
 }
 
+#time{
+	float: right; 
+	font-size:20px;
+	margin-top:-7px;
+	margin-left:50px;
+	padding:2px;
+	border-radius:5px;
+	color:#
+}

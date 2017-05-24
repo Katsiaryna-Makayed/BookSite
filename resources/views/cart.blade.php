@@ -10,8 +10,8 @@
             <table class="table table-hover">
                 <thead>
 					<tr class="cart_menu">
-                        <td class="image">Товар</td>
-                        <td class="description">Описание</td>
+                        
+                        <td class="description">Товар</td>
                         <td class="price">Цена</td>
                         <td class="quantity">Количество</td>
                         <td class="total">Общая сумма</td>
@@ -19,11 +19,16 @@
                 </thead>
 				
                 <tbody>
+                <?php
+$arr = [];
+                ?>
                 @foreach($cart as $item)
+                <?php
+$arr[$item->id] = $item->qty;
+                ?>
+
                     <tr>
-                        <td class="cart_product">
-                           <img src = "{{asset('public/img/maple.jpg')}}"  width="106"  height="146">   
-                        </td>
+                       
                         <td class="cart_description">
                             <a href="">{{$item->name}}</a>   						
                         </td>
@@ -58,24 +63,17 @@
 					<p class = "small-header-right">{{$sum}} руб.</p>
 				</div>
 				
-				<form name="order-info" method="get" action="">
+				<form name="order-info" method="POST" action="{{url('order')}}">
+						<input type="hidden" name="_token" value="{{csrf_token()}}">
 					<div class="panel-body" id="order-panel"> 
                     	<div>
 							<p class="small-header-left">Ваше имя: </p>
-							<input class = "small-inp" type="text" name="user-name" placeholder=" напр. Виталий">
+							<input class = "small-inp" type="text" name="comment" placeholder=" напр. Виталий">
 						</div>
+						<input type="hidden" name="body" value="{{serialize($arr)}}">
 						<div>
 							<p class="small-header-left">Номер телефона: </p>
-							<input class = "small-inp" type="text" name="user-phone" placeholder=" +375 (29)_ _ _ _ _ _ _">
-						</div>
-						<div>
-							<p class="small-header-center">Способ доставки:</p>
-							<div class="radio" id = "deliver">   
-								<input id="by-post" type="radio" name="deliver" value="by-post">
-								<label for="by-post" id = "deliver">Доставка почтой</label>
-								<input id="courier" type="radio" name="deliver" value="courier">
-								<label for="courier" id ="deliver" >Доставка курьером</label>
-							</div>
+							<input class = "small-inp" type="text" name="phone" placeholder=" +375 (29)_ _ _ _ _ _ _">
 						</div>
 
 						<div class = "small-text">Сбор заказа составит 1 день. Подробности доставки уточняются у диспетчера </div>

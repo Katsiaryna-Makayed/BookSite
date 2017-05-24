@@ -48,7 +48,10 @@ class BreadComposer{
 		{
 			$second = 'Корзина';
 		}
-
+		if($arr[1] == 'order')
+		{
+			$second = 'Заказ';
+		}
 		if($arr[1] == 'book')
 		{
 			$book = Products::where('showhide', 'show')->where('id', $arr[2])->first();

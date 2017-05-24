@@ -4,7 +4,31 @@
 <div class="row">
 
 <div class="col-md-4">
+@if($book->sale == "no_sale")
 <img src = "{{asset('/public/uploads/'.$book->photo)}}" alt = "{{$book->name}} картинка" width="336"  height="462">
+@endif	
+
+@if($book->sale == "sale_5")
+	<div class="sale-line" >
+	<img src = "{{asset('/public/uploads/'.$book->photo)}}" alt = "{{$book->name}} картинка" width="336"  height="462">
+	<span id="big1">-5%</span>
+	</div>
+@endif	
+
+@if($book->sale == "sale_10")
+<div class="sale-line" >
+	<img src = "{{asset('/public/uploads/'.$book->photo)}}" alt = "{{$book->name}} картинка" width="336"  height="462">
+	<span id="big1">-10%</span>
+</div>
+@endif	
+
+@if($book->sale == "sale_15")
+	<div class="sale-line" >
+	<img src = "{{asset('/public/uploads/'.$book->photo)}}" alt = "{{$book->name}} картинка" width="336"  height="462">
+	<span id="big1">-15%</span>
+</div>
+@endif	
+
 </div>
 
 
@@ -14,6 +38,10 @@
 	<hr>
 	
 	<div class = "descr-name" id = "f14"><a href="{{url('author/'.$book->authors_id)}}"> {{$book->authors->fio}}, {{$book->year}}  </a></div>
+	
+	
+	
+	
 	<div class = "descr-name" id = "f18">{{$book->price}} руб.</div>
 	<div class = "descr-name" id = "f14">Описание: </div>
 	<div class = "descr-name" >{{$book->description}}</div>
@@ -39,10 +67,34 @@
 			<div class="panel-body">
 				<div class="row">				
 					@foreach($author_books as $one)									
-						<div class="col-sm-2 ">				
+						<div class="col-sm-3 ">				
 						<a  href="{{url('book/'.$one->id)}}">
 							<div class="good-ref-small">						
-								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="148"  height="204">
+								
+								@if($one->sale == "no_sale")
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="160"  height="220">
+								@endif	
+
+								@if($one->sale == "sale_5")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}"width="160"  height="220">
+								<span>-5%</span>
+								</div>
+								@endif	
+
+								@if($one->sale == "sale_10")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="160"  height="220">
+								<span >-10%</span>
+								</div>
+								@endif	
+
+								@if($one->sale == "sale_15")
+								<div class="sale-line" >
+								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="160"  height="220">
+								<span>-15%</span>
+								</div>
+								@endif	
 								<div class = "descr-name">{{$one->name}}</div>
 							</div>
 						</a>
