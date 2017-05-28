@@ -13,7 +13,7 @@
 	<img src = "{{asset('/public/uploads/'.$book->photo)}}" alt = "{{$book->name}} картинка" width="336"  height="462">
 	<span id="big1">-5%</span>
 	</div>
-@endif	
+@endif	 
 
 @if($book->sale == "sale_10")
 <div class="sale-line" >

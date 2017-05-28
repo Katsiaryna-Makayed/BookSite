@@ -10,7 +10,6 @@
             <table class="table table-hover">
                 <thead>
 					<tr class="cart_menu">
-                        
                         <td class="description">Товар</td>
                         <td class="price">Цена</td>
                         <td class="quantity">Количество</td>
@@ -33,7 +32,7 @@ $arr[$item->id] = $item->qty;
                             <a href="">{{$item->name}}</a>   						
                         </td>
                         <td class="cart_price">
-                            ${{$item->price}}
+                            {{$item->price}} руб.
                         </td>
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
@@ -43,13 +42,14 @@ $arr[$item->id] = $item->qty;
                             </div>
                         </td>
                         <td class="cart_total">
-                            <div class="cart_total_price">${{$item->subtotal}}</div>
+                            <div class="cart_total_price">{{$item->subtotal}} руб.</div>
                         </td>
                         <td >
                             <a href="{{ url('delete-cart-product/' .$item->rowId) }}"><i class="fa fa-times"></i></a>
                         </td>
                     </tr>
                 </tbody>
+				
                 @endforeach
             </table>
 		</div>

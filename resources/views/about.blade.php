@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+ 
 <div class="col-md-9 ">
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.5578855165636!2d27.550253615589483!3d53.90406168009969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfeba0413c91%3A0xe0fb783d2af93747!2z0YPQu9C40YbQsCDQndC10LzQuNCz0LAgMywg0JzQuNC90YHQuiwg0JHQtdC70LDRgNGD0YHRjA!5e0!3m2!1sru!2sru!4v1495557974324" width="820" height="450" frameborder="0" allowfullscreen></iframe>
 </div>

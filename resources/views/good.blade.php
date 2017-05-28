@@ -89,7 +89,7 @@
 								@endif	
 								<div class = "descr-name">{{$product->name}}</div>
 								<div class = "descr-author">{{$product->authors->fio}}</div>
-								<div class = "descr-price">{{$product->price}}</div>
+								<div class = "descr-price">{{$product->price}} руб.</div>
 						
 							</div>
 						</a>

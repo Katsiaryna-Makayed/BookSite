@@ -50,7 +50,7 @@
 								<img src = "{{asset('/public/uploads/'.$one->photo)}}" alt = "{{$one->name}}" width="160"  height="220">
 								<span>-15%</span>
 								</div>
-								@endif	
+								@endif	 
 								<div class = "descr-name">{{$one->name}}</div>
 							</div>
 						</a>

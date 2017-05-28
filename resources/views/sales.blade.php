@@ -15,7 +15,7 @@
 								</div>
 								<div class = "descr-name">{{$one->name}}</div>
 								<div class = "descr-author">{{$one->authors->fio}}</div>
-								<div class = "descr-price">{{$one->price}}</div>
+								<div class = "descr-price">{{$one->price}} руб.</div>
 						
 							</div>
 						</a>
@@ -34,7 +34,7 @@
 								</div>
 								<div class = "descr-name">{{$one->name}}</div>
 								<div class = "descr-author">{{$one->authors->fio}}</div>
-								<div class = "descr-price">{{$one->price}}</div>
+								<div class = "descr-price">{{$one->price}} руб.</div>
 						
 							</div>
 						</a>
@@ -51,7 +51,7 @@
 								</div>
 								<div class = "descr-name">{{$one->name}}</div>
 								<div class = "descr-author">{{$one->authors->fio}}</div>
-								<div class = "descr-price">{{$one->price}}</div>
+								<div class = "descr-price">{{$one->price}} руб.</div>
 						
 							</div>
 						</a>

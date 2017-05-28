@@ -4,19 +4,19 @@ body{
 	font-size: 12pt;
 }
 
-a {
-	color: #40382D; 
-	font-family: arial; 
-}
-a:hover {
-	color: #40382D;	
-}
-a:active {
-	color: #40382D; 	
-}
-a:visited {
-color: #40382D;  
-}
+	a {
+		color: #40382D; 
+		font-family: arial; 
+	}
+	a:hover {
+		color: #40382D;	
+	}
+	a:active {
+		color: #40382D; 	
+	}
+	a:visited {
+		color: #40382D;  
+	}
 
 html{
 	padding-top:20px;
@@ -174,30 +174,29 @@ text-align: center;  }
         float: right;
 		margin-top:20px;
 }
-.search input, .search button {
-  outline: none;
-  background: transparent;
-}
-.search input {
- 
-  padding-left: 15px;
-  border: 2px solid #58554B;
-  border-radius: 12px;
-}
-.search button {
-  border:none;
-  border-color: red; 
-  cursor: pointer;
-}
-.search button:before {
-  content: "\f002";
-  font-family: FontAwesome;
-  font-size: 16px;
-  color: #58554B;
-}
-.search input:focus {
-  border-color: #311c24
-}
+	.search input, .search button {
+		outline: none;
+		background: transparent;
+	}
+	.search input {
+		padding-left: 15px;
+		border: 2px solid #58554B;
+		border-radius: 12px;
+	}	
+	.search button {
+		border:none;
+		border-color: red; 
+		cursor: pointer;
+	}
+	.search button:before {
+		content: "\f002";
+		font-family: FontAwesome;
+		font-size: 16px;
+		color: #58554B;
+	}
+	.search input:focus {
+		border-color: #311c24
+	}
 
 .good-ref-big{
 border: 2px solid white;

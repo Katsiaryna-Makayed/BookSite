@@ -14,7 +14,7 @@
 		<p class="small-header-center" id = "for-cetegory">{{$one->name}}</p>
 		</div>
 		</a>
-	</div>
+	</div> 
     @endforeach
 	</div>
 	
