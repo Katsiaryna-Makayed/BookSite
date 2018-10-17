@@ -34,7 +34,7 @@ class BaseController extends Controller
     public function getIndex(){
         $new_books = Products::where('showhide', 'show')->orderBy('created_at', 'DESC')->paginate(12);
         $sale_books = Products::where('showhide', 'show')->orderBy('sale', 'sale_5')->paginate(12);
-        $pop_books = Products::where('showhide', 'show')->orderBy('quantity', 'DESC')->paginate(20);
+        $pop_books = Products::where('showhide', 'show')->orderBy('quantity', 'DESC')->paginate(12);
         return view('home')->with('new_books', $new_books)->with('sale_books', $sale_books)->with('pop_books', $pop_books);
          
          

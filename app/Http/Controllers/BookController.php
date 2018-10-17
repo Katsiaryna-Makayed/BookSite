@@ -20,7 +20,7 @@ class BookController extends Controller
         $all['user_id'] = Auth::user()->id;
         $all['status'] = 'just ordered';
         $cart = unserialize($all['body']);
-        dd($cart); 
+        //dd($cart); 
 
         $find = Cart::find($cart->id);
 //        $all['body'] = 
